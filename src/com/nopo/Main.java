@@ -17,7 +17,7 @@ public class Main {
     public static int x = 0;
     public static int y = 0;
     //Player stats
-    public static int hp = 4;
+    public static int hp = 100;
     public static int atk = 2;
     public static int def = 4;
     public static int coins = 0;

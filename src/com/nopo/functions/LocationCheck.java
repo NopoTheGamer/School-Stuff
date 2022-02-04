@@ -61,15 +61,18 @@ public class LocationCheck {
                         System.out.println("You found an apple!");
                         for (int i = 0; i < items.length; i++) {
                             if (items[i] == null) {
-                                items[i] = "Apple";
+                                items[i] = "apple";
                                 break;
                             }
                         }
+                        movement();
                     } else {
                         System.out.println("Some bees attacked you!" + ln + "You got hit for 5 hp");
                         hp -= 5;
                         if (hp < 1) {
                             death();
+                        } else {
+                            movement();
                         }
                     }
                     appleTree1 = true;

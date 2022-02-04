@@ -17,8 +17,8 @@ public class Startup {
         }
         rngSeed = (int) (Math.random() * 100);
         System.out.println(rngSeed);
-        x = randomNumberX[2];
-        y = randomNumberY[2];
+        x = randomNumberX[10];
+        y = randomNumberY[10];
         //Scanner scanner = new Scanner(System.in);
         System.out.println("Input your characters name");
         //name = scanner.nextLine();
