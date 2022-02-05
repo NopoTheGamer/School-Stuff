@@ -42,6 +42,10 @@ public class Movement {
             case "cheat" -> {
                 System.out.println("Chest X: " + randomNumberX[0] + " Y: " + randomNumberY[0]);
                 System.out.println("Goblin X: " + randomNumberX[1] + " Y: " + randomNumberY[1]);
+                System.out.println("Tree X: " + randomNumberX[2] + " Y: " + randomNumberY[2]);
+                System.out.println("Sword X: " + randomNumberX[3] + " Y: " + randomNumberY[3]);
+                System.out.println("Purse X: " + randomNumberX[4] + " Y: " + randomNumberY[4]);
+                System.out.println("Spider X: " + randomNumberX[5] + " Y: " + randomNumberY[5]);
                 getLocation();
             }
             case "ai" -> {

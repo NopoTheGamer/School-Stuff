@@ -85,34 +85,45 @@ public class LocationCheck {
             }
         } else if (x == randomNumberX[2] && y == randomNumberY[2]) {
             if (!appleTree1) {
-                System.out.println("| Looks like an apple tree!" + Utils.printSpaces(13) + "|");
-                System.out.println("| Do you want to shake it? (y/n)");
+                System.out.println("| Looks like an apple tree!" + Utils.printSpaces(14) + "|");
+                System.out.println("| Do you want to shake it?   (y) | (n)   |");
+                Utils.printTrimmer();
                 Scanner scanner = new Scanner(System.in);
-                if (scanner.nextLine().equals("y")) {
-                    if (rngSeed > 20) {
-                        System.out.println("You found an apple!");
-                        getItem("Apple", 1);
-                        movement();
-                    } else {
-                        System.out.println("Some bees attacked you!" + Utils.ln + "You got hit for 5 hp");
-                        hp -= 5;
-                        if (hp < 1) {
-                            death();
-                        } else {
+                String input = scanner.nextLine();
+                switch (input.toLowerCase(Locale.ENGLISH)) {
+                    case "y" -> {
+                        appleTree1 = true;
+                        if (rngSeed > 20) {
+                            System.out.println("You found an apple!");
+                            getItem("Apple", 1);
                             movement();
+                        } else {
+                            System.out.println("Some bees attacked you!" + Utils.ln + "You got hit for 5 hp");
+                            hp -= 5;
+                            if (hp < 1) {
+                                death();
+                            } else {
+                                movement();
+                            }
                         }
                     }
-                    appleTree1 = true;
-                } else if (scanner.nextLine().equals("n")) {
-                    System.out.println("You didn't shake it!");
-                } else {
-                    System.out.println("Invalid input");
+                    case "n" -> {
+                        System.out.println("| You didn't shake it!" + Utils.printSpaces(19) + "|");
+                        movement();
+                    }
+                    default -> {
+                        System.out.println("| Invalid input" + Utils.printSpaces(26) + "|");
+                        isImportant();
+                    }
                 }
+            } else {
+                movement();
             }
         } else if (x == randomNumberX[3] && y == randomNumberY[3]) {
             if (!hasSword || swordLevel < 1) {
-                System.out.println("You found a rusty sword lying on the ground!");
-                System.out.println("This will give you +3 attack!");
+                System.out.println("| You found a rusty sword" + Utils.printSpaces(16) + "|");
+                System.out.println("| It was just lying on the ground!" + Utils.printSpaces(7) + "|");
+                System.out.println("| This will give you +3 attack!" + Utils.printSpaces(10) + "|" + Utils.lnt);
                 swordLevel = 1;
                 hasSword = true;
                 atk += 3;
@@ -120,24 +131,28 @@ public class LocationCheck {
             movement();
         } else if (x == randomNumberX[4] && y == randomNumberY[4]) {
             if (!purse1) {
-                System.out.println("Looks like someone dropped their purse!" + Utils.ln + "You took the money from the purse!");
+                System.out.println("| Looks like someone dropped their purse |" + Utils.ln + "| You took the money from the purse!" + Utils.printSpaces(5) + "|");
                 coins += 10;
-                System.out.println("You now have " + coins + " coins!");
+                System.out.println("| You now have " + coins + " coins!" + Utils.getSpaceLength(coins, 19) + "|" + Utils.lnt);
                 movement();
             }
         } else if (x == randomNumberX[5] && y == randomNumberY[5]) {
             if (!giantSpiderFight) {
                 giantSpiderFight = true;
-                System.out.println("Look out " + name + "! There's a giant spider!");
+                System.out.println("| Look out " + name + "!" + Utils.getSpaceLength(name, 6) + "|");
+                System.out.println("| There's a giant spider!" + Utils.printSpaces(16) + "|");
                 fight(25, 6, "Giant Spider", 3);
             } else {
                 movement();
 
             }
         } else if (x == randomNumberX[6] && y == randomNumberY[6]) {
-            System.out.println("There is a shop!" + Utils.ln + "Would you like to go inside? (y/n)");
+            System.out.println("| There is a shop!" + Utils.printSpaces(23) + "|");
+            System.out.println("| Go inside?      (y)     |     (n)      |");
+            Utils.printTrimmer();
+            System.out.println("");
             Scanner scanner = new Scanner(System.in);
-            if (scanner.nextLine().equals("y")) {
+            if (scanner.nextLine().toLowerCase(Locale.ENGLISH).equals("y")) {
                 shop();
             } else {
                 movement();

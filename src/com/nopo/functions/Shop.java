@@ -19,7 +19,7 @@ public class Shop {
     public static void shop() {
         listItemsForSale();
         if (coins < 3) {
-            System.out.println("You don't have enough coins to buy anything.");
+            System.out.println("| Everything is too expensive to buy.    |");
             movement();
         } else {
             Scanner scanner = new Scanner(System.in);
@@ -83,9 +83,9 @@ public class Shop {
         }
     }
     public static void listItemsForSale() {
-
-        System.out.println("Welcome to the shop!");
-        System.out.println("What would you like to buy?");
+        Utils.printTrimmer();
+        System.out.println("| Welcome to the shop!" + Utils.printSpaces(19) + "|");
+        System.out.println("| What would you like to buy?" + Utils.printSpaces(12) + "|");
         Utils.printTrimmer();
         System.out.println("| You have " + coins + " coins." + Utils.getSpaceLength(coins, 23) + "|");
         if (appleStock > 0) {
