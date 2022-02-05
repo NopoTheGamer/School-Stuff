@@ -1,5 +1,7 @@
 package com.nopo.functions;
 
+import com.nopo.Utils;
+
 import java.util.Scanner;
 import static com.nopo.Main.*;
 
@@ -11,7 +13,10 @@ import static com.nopo.functions.LocationCheck.randomNumberY;
 
 public class Movement {
     public static void movement() {
-        System.out.println("What do you want to do?" + ln + "Move? (w/a/s/d)" + ln + "Open (inv)entory?" + ln + "Open (map)?");
+        System.out.println("| What do you want to do?" + Utils.printSpaces(16) + "|");
+        System.out.println("| Move (w/a/s/d) | (inv)entory |  (map)  |");
+        Utils.printTrimmer();
+        System.out.println("");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         switch (input) {

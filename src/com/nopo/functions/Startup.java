@@ -1,5 +1,7 @@
 package com.nopo.functions;
 
+import com.nopo.Utils;
+
 import java.util.Scanner;
 
 import static com.nopo.Main.*;
@@ -19,9 +21,20 @@ public class Startup {
         System.out.println(rngSeed);
         x = randomNumberX[10];
         y = randomNumberY[10];
-        //Scanner scanner = new Scanner(System.in);
-        System.out.println("Input your characters name");
-        //name = scanner.nextLine();
-        System.out.println("Hello \"" + name + "\"" + ln + "Welcome to the world of Nopo");
+        Scanner scanner = new Scanner(System.in);
+        Utils.printTrimmer();
+        System.out.println("| Input your characters name" + Utils.printSpaces(13) + "|");
+        Utils.printTrimmer();
+        name = scanner.nextLine();
+        Utils.printTrimmer();
+        if (name.length() > 30) {
+            System.out.println("| Your name is too long, " + Utils.printSpaces(16) + "|");
+            System.out.println("| so I trimmed it for you" + Utils.printSpaces(16) + "|");
+            name = name.substring(0, 30);
+        }
+        System.out.println("| Hello \"" + name + "\"" + Utils.getSpaceLength(name, 4) + "|" + Utils.ln +
+                           "| Welcome to the world of Nopo" + Utils.printSpaces(11) + "|");
+        Utils.printTrimmer();
+        System.out.println("");
     }
 }

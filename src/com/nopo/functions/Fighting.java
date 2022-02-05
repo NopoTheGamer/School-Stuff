@@ -1,6 +1,6 @@
 package com.nopo.functions;
 
-import jdk.jshell.spi.SPIResolutionException;
+import com.nopo.Utils;
 
 import java.util.Scanner;
 
@@ -17,14 +17,16 @@ public class Fighting {
     public static int playerDamage = 0;
     public static boolean failedDefend = false;
 
-    public static void fight(int monsterHp, int monsterAtk, String monsterName) {
+    public static void fight(int monsterHp, int monsterAtk, String monsterName, int monsterLevel) {
         monsterHealth = monsterHp;
         monsterAttack = monsterAtk;
-        System.out.println("You have " + hp + " hp");
-        System.out.println(monsterName + " has " + monsterHp + " hp");
+        Utils.printTrimmer();
+        System.out.println("|" + Utils.getSpaceLength(monsterName, 14) + Utils.getSpaceLength(monsterHp, 10) + monsterName + " has " + monsterHp + " hp |" + Utils.lnt);
+        System.out.println("| You have " + hp + " hp" + Utils.getSpaceLength(hp, 27) + "|");
         while (hp > 0 && monsterHealth > 0) {
-
-            System.out.println("What do you want to do? (a/d)");
+            System.out.println("|      (a)ttack      |      (d)fend      |");
+            Utils.printTrimmer();
+            System.out.println("");
             Scanner scanner = new Scanner(System.in);
             String action = scanner.nextLine();
             switch (action) {
@@ -40,10 +42,12 @@ public class Fighting {
             }
         }
         if (hp > 0) {
-            System.out.println("You defeated " + monsterName);
-            System.out.println("You have " + hp + " hp");
-            coins += 5;
-            System.out.println("You gained 5 coins!" + ln + "You now have " + coins + " coins");
+            System.out.println("|" + Utils.getSpaceLength(monsterName, 9) + "You defeated " + monsterName + " |" + Utils.lnt);
+            System.out.println("| You have " + hp + " hp" + Utils.getSpaceLength(hp, 27) + "|");
+            coins += 5 * monsterLevel;
+            System.out.println("| You gained " + (5 * monsterLevel) + " coins!" + Utils.getSpaceLength(5 * monsterLevel, 21) + "|");
+            System.out.println("| You now have " + coins + " coins" + Utils.getSpaceLength(coins, 20) + "|");
+            Utils.printTrimmer();
             movement();
         } else {
             death();
@@ -54,31 +58,36 @@ public class Fighting {
         playerDamage = (int) ((Math.random() * 4) * atk);
         if (!failedDefend) {
             monsterHealth = monsterHealth - playerDamage;
-            System.out.println("You hit the monster for " + playerDamage + " damage!");
+            Utils.printTrimmer();
+            System.out.println("|" + Utils.getSpaceLength(playerDamage, 7) + "You hit the monster for " + playerDamage + " damage! |");
         } else {
-            System.out.println("While trying to defend the monster attacked you!");
+            System.out.println("| While trying to defend" + Utils.printSpaces(17) + "|");
+            System.out.println("| The monster attacked you!" + Utils.printSpaces(14)  + "|");
+            Utils.printTrimmer();
             failedDefend = false;
         }
             if (monsterHealth > 0) {
-                System.out.println("The monster has " + monsterHealth + " hp");
+                System.out.println("|" + Utils.getSpaceLength(monsterHealth, 20) + "The monster has " + monsterHealth + " hp |" + Utils.lnt);
+                if (defendCooldown > 0) {
+                    defendCooldown -= 1;
+                }
                 if (protectedTurns == 0) {
                     protectedAmount = 100;
                     hp = hp - monsterDamage;
-                    System.out.println("The monster hits you for " + monsterDamage + " damage");
+                    System.out.println("| The monster hits you for " + monsterDamage + " damage!" + Utils.getSpaceLength(monsterDamage, 6) + "|");
                 } else if (protectedTurns >= 1) {
                     protectedTurns -= 1;
-                    defendCooldown -= 1;
                     if (protectedAmount == 0) {
                         System.out.println("The monster hits you but you fully protected yourself");
                     } else if (protectedAmount > 0) {
                         float floatMonsterDamage = monsterDamage;
                         float damage = ((floatMonsterDamage / 100) * protectedAmount);
                             hp = (int) (hp - damage);
-                            System.out.println("The monster hits you for " + ((monsterDamage / 100) * protectedAmount) + " damage");
+                            System.out.println("| The monster hits you for " + Math.round(damage) + " damage!" + Utils.getSpaceLength((int) damage, 6) + "|");
                         }
                     }
                 if (hp > 0) {
-                    System.out.println("You have " + hp + " hp");
+                    System.out.println("| You have " + hp + " hp" + Utils.getSpaceLength(hp, 27) + "|");
                 }
             } else {
                 monsterHealth = 0;
@@ -98,9 +107,19 @@ public class Fighting {
                         System.out.println("The monster does half damage to you for the next 2 turns!");
                         protectedAmount = 50;
                         protectedTurns += 2;
+                        defendCooldown = 3;
+                    } else {
+                        Utils.printTrimmer();
+                        System.out.println("| The monster does a quarter less damage |" + Utils.ln + "| to you for the next turn!" + Utils.printSpaces(14) + "|" + Utils.lnt);
+                        protectedAmount = 75;
+                        protectedTurns += 1;
+                        defendCooldown = 3;
                     }
                 } else {
-                    System.out.println("You can't defend yourself for " + defendCooldown + " more turn" + ((defendCooldown > 1) ? "s!" : "!"));
+                    Utils.printTrimmer();
+                    System.out.println("| You can't defend yourself for" + Utils.printSpaces(10) + "|");
+                    System.out.println("| " + defendCooldown + " more turn" + ((defendCooldown > 1) ? "s!" : "! ") + Utils.printSpaces(26) + "|");
+                    System.out.println(Utils.lnt);
                     failedDefend = true;
                     attack();
                 }

@@ -1,6 +1,7 @@
 package com.nopo.functions;
 
-import static com.nopo.functions.GetLocation.getLocation;
+import com.nopo.Utils;
+
 import static com.nopo.functions.LocationCheck.randomNumberX;
 import static com.nopo.functions.LocationCheck.randomNumberY;
 import static com.nopo.functions.Movement.movement;
@@ -19,7 +20,7 @@ public class Death {
         System.out.println("You died!");
         coins /= 2;
         if (coins > 0) {
-            System.out.println("You lost half your coins!" + ln + "You now have " + coins + " coins");
+            System.out.println("You lost half your coins!" + Utils.ln + "You now have " + coins + " coins");
         }
         movement();
     }
