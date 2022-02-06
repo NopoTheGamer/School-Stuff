@@ -7,8 +7,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import static com.nopo.Main.coins;
-import static com.nopo.Utils.ln;
-import static com.nopo.functions.GetItem.getItem;
+import static com.nopo.items.ItemsUtils.getItem;
 import static com.nopo.functions.Movement.movement;
 
 public class Shop {

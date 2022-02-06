@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import static com.nopo.functions.Death.death;
 import static com.nopo.functions.Fighting.fight;
-import static com.nopo.functions.GetItem.getItem;
+import static com.nopo.items.ItemsUtils.getItem;
 import static com.nopo.functions.Movement.movement;
 import static com.nopo.Main.*;
 import static com.nopo.functions.Shop.shop;

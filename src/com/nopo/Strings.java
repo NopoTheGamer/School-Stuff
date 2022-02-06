@@ -67,4 +67,26 @@ public class Strings {
 
     public static String keyDoor1 = "Looks like there is a door here!";
     public static String keyDoor2 = "Its locked, you need a key to get in";
+
+    //Items
+    public static String apple1 = "That apple must of been rotten.";
+    public static String apple2 = "You ate the apple and gained 10 HP!";
+
+    public static String key1 = "You took out the key";
+    public static String key2 = "It fits perfectly in the door";
+    public static String key3 = "The door and you see a chest!";
+    public static String key4 = "You open up the chest and you find";
+    public static String key5 = "A shield that gives you 5 defense";
+    public static String key6 = "35 Coins";
+    public static String key7 = "And a mouldy cookie";
+    public static String wrongKeySpot = "There is nowhere to use this key";
+
+    public static String cookieBad = "You bit into the cookie";
+    public static String cookieBad1 = "Btw mold isn't good for you";
+    public static String cookieGood = "You ate the cookie!";
+
+    //Item Utils
+    public static String inventory1 = "Use an item? (item name/n)";
+    public static String inventory2 = "You have nothing.";
+    public static String inventory3 = "You have:";
 }

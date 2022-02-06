@@ -22,11 +22,11 @@ public class Startup {
         System.out.println(rngSeed);
         x = randomNumberX[8];
         y = randomNumberY[8];
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         Utils.printTrimmer();
         Utils.printFormattedLine(Strings.inputName);
         Utils.printTrimmer();
-        name = scanner.nextLine();
+        //name = scanner.nextLine();
         Utils.printTrimmer();
         if (name.length() > 30) {
             Utils.printFormattedLine(Strings.tooLong);

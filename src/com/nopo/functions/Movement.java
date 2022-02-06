@@ -1,20 +1,21 @@
 package com.nopo.functions;
 
 import com.nopo.Utils;
+import com.nopo.items.ItemsUtils;
 
 import java.util.Scanner;
 import static com.nopo.Main.*;
 
 import static com.nopo.functions.GetLocation.getLocation;
-import static com.nopo.items.Inventory.inventory;
-import static com.nopo.items.Inventory.items;
+import static com.nopo.items.ItemsUtils.inventory;
+import static com.nopo.items.ItemsUtils.items;
 import static com.nopo.functions.LocationCheck.randomNumberX;
 import static com.nopo.functions.LocationCheck.randomNumberY;
 
 public class Movement {
     public static void movement() {
         System.out.println("| What do you want to do?" + Utils.printSpaces(16) + "|");
-        System.out.println("| Move (w/a/s/d) | (inv)entory |  (map)  |");
+        System.out.println("| Move (w/a/s/d) | (inv)entory | (stats) |");
         Utils.printTrimmer();
         System.out.println();
         Scanner scanner = new Scanner(System.in);
@@ -46,12 +47,22 @@ public class Movement {
                 System.out.println("Sword X: " + randomNumberX[3] + " Y: " + randomNumberY[3]);
                 System.out.println("Purse X: " + randomNumberX[4] + " Y: " + randomNumberY[4]);
                 System.out.println("Spider X: " + randomNumberX[5] + " Y: " + randomNumberY[5]);
+                ItemsUtils.getItem("Key", 8);
                 getLocation();
             }
             case "ai" -> {
                 for (int i = 0; i < items.length; i++) {
                     items[i] = "" + i;
                 }
+                movement();
+            }
+            case "stats" -> {
+                Utils.printTrimmer();
+                System.out.println("| Health: " + hp + Utils.getSpaceLength(hp,31) + "|");
+                System.out.println("| Defence: " + def + Utils.getSpaceLength(def,30) + "|");
+                System.out.println("| Attack: " + atk + Utils.getSpaceLength(atk,31) + "|");
+                System.out.println("| Coins: " + coins + Utils.getSpaceLength(coins,32) + "|");
+                System.out.println(Utils.lt);
                 movement();
             }
             default -> {
