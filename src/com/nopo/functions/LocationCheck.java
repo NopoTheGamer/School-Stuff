@@ -1,5 +1,6 @@
 package com.nopo.functions;
 
+import com.nopo.Strings;
 import com.nopo.Utils;
 
 import java.util.Locale;
@@ -17,12 +18,11 @@ public class LocationCheck {
     //one time encounter flags
     public static boolean lootChest1 = false;
     public static boolean appleTree1 = false;
-    public static boolean hasSword = false;
     public static int swordLevel = 0;
     public static boolean purse1 = false;
     public static boolean goblinFight = false;
     public static boolean giantSpiderFight = false;
-
+    public static boolean keyDoor1 = false;
 
     public static int[] randomNumberX = new int[21];
     public static int[] randomNumberY = new int[21];
@@ -59,7 +59,7 @@ public class LocationCheck {
                 System.out.println("| Do you want to fight it?" + Utils.printSpaces(15) + "|");
                 System.out.println("|       (Y)es       |        (N)o        |");
                 Utils.printTrimmer();
-                System.out.println("");
+                System.out.println();
                 Scanner scanner = new Scanner(System.in);
                 String input = scanner.nextLine();
                 switch (input.toLowerCase(Locale.ENGLISH)) {
@@ -90,15 +90,17 @@ public class LocationCheck {
                 Utils.printTrimmer();
                 Scanner scanner = new Scanner(System.in);
                 String input = scanner.nextLine();
+                Utils.printTrimmer();
                 switch (input.toLowerCase(Locale.ENGLISH)) {
                     case "y" -> {
                         appleTree1 = true;
                         if (rngSeed > 20) {
-                            System.out.println("You found an apple!");
+                            System.out.println("| You found an apple!" + Utils.printSpaces(20) + "|");
                             getItem("Apple", 1);
                             movement();
                         } else {
-                            System.out.println("Some bees attacked you!" + Utils.ln + "You got hit for 5 hp");
+                            System.out.println("| Some bees attacked you!" + Utils.printSpaces(16) + "|");
+                            System.out.println("| You got hit for 5 hp" + Utils.printSpaces(19) + "|");
                             hp -= 5;
                             if (hp < 1) {
                                 death();
@@ -120,12 +122,11 @@ public class LocationCheck {
                 movement();
             }
         } else if (x == randomNumberX[3] && y == randomNumberY[3]) {
-            if (!hasSword || swordLevel < 1) {
+            if (swordLevel < 1) {
                 System.out.println("| You found a rusty sword" + Utils.printSpaces(16) + "|");
                 System.out.println("| It was just lying on the ground!" + Utils.printSpaces(7) + "|");
-                System.out.println("| This will give you +3 attack!" + Utils.printSpaces(10) + "|" + Utils.lnt);
+                System.out.println("| It gives you +3 attack!" + Utils.printSpaces(16) + "|" + Utils.lnt);
                 swordLevel = 1;
-                hasSword = true;
                 atk += 3;
             }
             movement();
@@ -134,8 +135,9 @@ public class LocationCheck {
                 System.out.println("| Looks like someone dropped their purse |" + Utils.ln + "| You took the money from the purse!" + Utils.printSpaces(5) + "|");
                 coins += 10;
                 System.out.println("| You now have " + coins + " coins!" + Utils.getSpaceLength(coins, 19) + "|" + Utils.lnt);
-                movement();
+                purse1 = true;
             }
+            movement();
         } else if (x == randomNumberX[5] && y == randomNumberY[5]) {
             if (!giantSpiderFight) {
                 giantSpiderFight = true;
@@ -156,6 +158,19 @@ public class LocationCheck {
                 shop();
             } else {
                 movement();
+            }
+        } else if (x == randomNumberX[7] && y == randomNumberY[7]) {
+            if (swordLevel < 2) {
+                System.out.println("| You found a iron sword" + Utils.printSpaces(16) + "|");
+                System.out.println("| It was left on the side of this rock" + Utils.printSpaces(3) + "|");
+                System.out.println("| It gives you +" + ((swordLevel == 1) ? "3" : "5") + " attack!" + Utils.printSpaces(16) + "|" + Utils.lnt);
+                atk += ((swordLevel == 1) ? 3 : 5);
+                swordLevel = 2;
+            }
+            movement();
+        } else if (x == randomNumberX[8] && y == randomNumberY[8]) {
+            if (!keyDoor1) {
+                System.out.println(Strings.keyDoor1 + Utils.printSpaces(41 - Strings.keyDoor1.length()) + "|");
             }
         }
         else {

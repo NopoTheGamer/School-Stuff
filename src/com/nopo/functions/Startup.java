@@ -14,18 +14,18 @@ public class Startup {
 
     public static void startUp() {
         for (int i = 0; i < 21; i++) {
-            randomNumberX[i] = (int) (Math.random() * 10);
-            randomNumberY[i] = (int) (Math.random() * 10);
+            randomNumberX[i] = (int) (Math.random() * 20);
+            randomNumberY[i] = (int) (Math.random() * 20);
         }
         rngSeed = (int) (Math.random() * 100);
         System.out.println(rngSeed);
-        x = randomNumberX[2];
-        y = randomNumberY[2];
-        Scanner scanner = new Scanner(System.in);
+        x = randomNumberX[8];
+        y = randomNumberY[8];
+        //Scanner scanner = new Scanner(System.in);
         Utils.printTrimmer();
         System.out.println("| Input your characters name" + Utils.printSpaces(13) + "|");
         Utils.printTrimmer();
-        name = scanner.nextLine();
+        //name = scanner.nextLine();
         Utils.printTrimmer();
         if (name.length() > 30) {
             System.out.println("| Your name is too long, " + Utils.printSpaces(16) + "|");

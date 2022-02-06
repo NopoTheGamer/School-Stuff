@@ -16,7 +16,7 @@ public class Movement {
         System.out.println("| What do you want to do?" + Utils.printSpaces(16) + "|");
         System.out.println("| Move (w/a/s/d) | (inv)entory |  (map)  |");
         Utils.printTrimmer();
-        System.out.println("");
+        System.out.println();
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         switch (input) {
