@@ -14,7 +14,7 @@ public class Main {
     public static int hp = 100;
     public static int atk = 3;
     public static int def = 4;
-    public static int coins = 0;
+    public static int coins = 30;
     //Fight stats
     public static int monsterHealth = 0;
     public static int monsterAttack = 0;

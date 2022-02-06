@@ -1,5 +1,6 @@
 package com.nopo.functions;
 
+import com.nopo.Strings;
 import com.nopo.Utils;
 
 import java.util.Locale;
@@ -19,7 +20,7 @@ public class Shop {
     public static void shop() {
         listItemsForSale();
         if (coins < 3) {
-            System.out.println("| Everything is too expensive to buy.    |");
+            Utils.printFormattedLine(Strings.shop3);
             movement();
         } else {
             Scanner scanner = new Scanner(System.in);
@@ -33,11 +34,11 @@ public class Shop {
                             appleStock--;
                             shop();
                         } else {
-                            System.out.println("You don't have enough coins to buy this item.");
+                            Utils.printFormattedLine(Strings.notEnoughCoins);
                             shop();
                         }
                     } else {
-                        System.out.println("Sorry, we're out of stock of this item.");
+                        Utils.printFormattedLine(Strings.outOfStock);
                         shop();
                     }
                 }
@@ -49,11 +50,11 @@ public class Shop {
                             keyStock = true;
                             shop();
                         } else {
-                            System.out.println("You don't have enough coins to buy this item.");
+                            Utils.printFormattedLine(Strings.notEnoughCoins);
                             shop();
                         }
                     } else {
-                        System.out.println("Sorry, we're out of stock of this item.");
+                        Utils.printFormattedLine(Strings.outOfStock);
                         shop();
                     }
                 }
@@ -64,11 +65,11 @@ public class Shop {
                             encounterStock = true;
                             shop();
                         } else {
-                            System.out.println("You don't have enough coins to buy this item.");
+                            Utils.printFormattedLine(Strings.notEnoughCoins);
                             shop();
                         }
                     } else {
-                        System.out.println("Sorry, we're out of stock of this item.");
+                        Utils.printFormattedLine(Strings.outOfStock);
                         shop();
                     }
                 }
@@ -76,7 +77,8 @@ public class Shop {
                     movement();
                 }
                 default -> {
-                    System.out.println("We dont have that item." + ln + "If you want to exit, type 'exit'");
+                    Utils.printFormattedLine(Strings.dontHaveItem);
+                    Utils.printFormattedLine(Strings.typeExit);
                     shop();
                 }
             }
@@ -84,21 +86,22 @@ public class Shop {
     }
     public static void listItemsForSale() {
         Utils.printTrimmer();
-        System.out.println("| Welcome to the shop!" + Utils.printSpaces(19) + "|");
-        System.out.println("| What would you like to buy?" + Utils.printSpaces(12) + "|");
+        Utils.printFormattedLine(Strings.shop8);
+        Utils.printFormattedLine(Strings.shop9);
         Utils.printTrimmer();
         System.out.println("| You have " + coins + " coins." + Utils.getSpaceLength(coins, 23) + "|");
         if (appleStock > 0) {
             System.out.println("| Apple (3 Coins) (" + appleStock + "x left)" + Utils.printSpaces(14) + "|");
         }
         if (!keyStock) {
-            System.out.println("| Key (25 Coins)" + Utils.printSpaces(25) + "|");
-        }
-        if (keyStock && appleStock == 0 && encounterStock) {
-            System.out.println("| This shop is out of stock!" + Utils.printSpaces(13) + "|" + ln + "| Type 'exit' to exit" + Utils.printSpaces(20) + "|");
+            Utils.printFormattedLine(Strings.shop12);
         }
         if (!encounterStock) {
-            System.out.println("| (R)andom encounters (35 Coins)" + Utils.printSpaces(9) + "|");
+            Utils.printFormattedLine(Strings.shop13);
+        }
+        if (keyStock && appleStock == 0 && encounterStock) {
+            Utils.printFormattedLine(Strings.shop14);
+            Utils.printFormattedLine(Strings.shop15);
         }
         Utils.printTrimmer();
     }
