@@ -20,8 +20,8 @@ public class Startup {
         }
         rngSeed = (int) (Math.random() * 100);
         System.out.println(rngSeed);
-        x = randomNumberX[8];
-        y = randomNumberY[8];
+        x = randomNumberX[2];
+        y = randomNumberY[2];
         //Scanner scanner = new Scanner(System.in);
         Utils.printTrimmer();
         Utils.printFormattedLine(Strings.inputName);

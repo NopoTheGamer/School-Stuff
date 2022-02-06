@@ -13,15 +13,16 @@ public class Items {
     public static boolean badApple = false;
 
     public static void apple() {
+        Utils.printTrimmer();
         if (rngSeed > 94 && !badApple) {
             badApple = true;
             Utils.printFormattedLine(Strings.apple1);
             hp -= 5;
-            System.out.println("You lost 5 HP. Your health is now " + hp);
+            Utils.printFormattedLine("You lost 5 HP. Your health is now " + hp);
         } else {
             Utils.printFormattedLine(Strings.apple2);
             hp += 10;
-            System.out.println("Your health is now " + hp);
+            Utils.printFormattedLine("Your health is now " + hp);
         }
     }
 

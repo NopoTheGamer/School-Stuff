@@ -56,14 +56,14 @@ public class LocationCheck {
                     Utils.printFormattedLine(Strings.goblin3);
                 }
                 Utils.printFormattedLine(Strings.goblin4);
-                Utils.printFormattedLine(Strings.goblin5);
+                Utils.printFormattedLine(Strings.promptYesNo);
                 Utils.printTrimmer();
                 System.out.println();
                 Scanner scanner = new Scanner(System.in);
                 String input = scanner.nextLine();
                 switch (input.toLowerCase(Locale.ENGLISH)) {
                     case "y" -> {
-                        fight(100, 3, "Short Goblin", 1);
+                        fight(50, 3, "Short Goblin", 1);
                     }
                     case "n" -> {
                         hp -= 5;
@@ -84,7 +84,6 @@ public class LocationCheck {
             }
         } else if (x == randomNumberX[2] && y == randomNumberY[2]) {
             if (!appleTree1) {
-                hp -= 5;
                 Utils.printFormattedLine(Strings.appleTree1);
                 Utils.printFormattedLine(Strings.appleTree2);
                 Utils.printTrimmer();
@@ -179,6 +178,28 @@ public class LocationCheck {
                 System.out.println(Utils.lt);
             }
             movement();
+        } else if (x == randomNumberX[9] && y == randomNumberY[9]) {
+            Utils.printFormattedLine(Strings.dragon1);
+            Utils.printFormattedLine(Strings.dragon2);
+            Utils.printFormattedLine(Strings.dragon3);
+            Utils.printFormattedLine(Strings.promptYesNo);
+            Scanner scanner = new Scanner(System.in);
+            String input = scanner.nextLine();
+            switch (input.toLowerCase(Locale.ENGLISH)) {
+                case "y" -> {
+                    fight(50, 12, "Dragon", 6);
+                }
+                case "n" -> {
+                    Utils.printTrimmer();
+                    Utils.printFormattedLine(Strings.goblin7); //fix this when not lazy
+                    movement();
+                }
+                default -> {
+                    Utils.printTrimmer();
+                    Utils.printFormattedLine(Strings.invalidInput);
+                    isImportant();
+                }
+            }
         }
         else {
             movement();

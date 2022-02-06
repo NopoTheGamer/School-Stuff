@@ -24,7 +24,7 @@ public class Strings {
     public static String goblin2 = "Look out " + name;
     public static String goblin3 = "There's a monster!";
     public static String goblin4 = "Do you want to fight it?";
-    public static String goblin5 = "      (Y)es       |        (N)o       ";
+    public static String promptYesNo = "      (Y)es       |        (N)o       ";
     public static String goblin6 = "You got hit for 5 hp!";
     public static String goblin7 = "Your hp is now: " + (hp-5);
 
@@ -67,6 +67,10 @@ public class Strings {
 
     public static String keyDoor1 = "Looks like there is a door here!";
     public static String keyDoor2 = "Its locked, you need a key to get in";
+
+    public static String dragon1 = "Watch out! There's a dragon!";
+    public static String dragon2 = "It looks extra strong";
+    public static String dragon3 = "Are you sure you want to fight it?";
 
     //Items
     public static String apple1 = "That apple must of been rotten.";
