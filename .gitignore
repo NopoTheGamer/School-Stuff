@@ -48,3 +48,6 @@ hs_err_pid*
 /Python-Stuff/.idea/modules.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/compiler.xml
+/.idea/artifacts/School_jar.xml
+/School.iml
+/out/production/School/META-INF/MANIFEST.MF
