@@ -41,3 +41,4 @@ hs_err_pid*
 /java-rpg/.idea/modules.xml
 /java-rpg/out/production/School-Stuff/META-INF/MANIFEST.MF
 /java-rpg/.idea/discord.xml
+/.idea/.gitignore
