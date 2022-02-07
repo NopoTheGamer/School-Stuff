@@ -21,13 +21,23 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/.idea/.gitignore
+/java-rpg/.idea/.gitignore
 /.idea/discord.xml
 /out/production/School-Stuff/META-INF/MANIFEST.MF
 /src/META-INF/MANIFEST.MF
 /.idea/misc.xml
+/java-rpg/.idea/misc.xml
 /.idea/modules.xml
 /.idea/School-Stuff.iml
 /.idea/artifacts/School_Stuff_jar.xml
 /.idea/vcs.xml
+/java-rpg/.idea/uiDesigner.xml
 /.idea/uiDesigner.xml
+/.idea/workspace.xml
+/java-rpg/.idea/vcs.xml
+/java-rpg/.idea/School-Stuff.iml
+/java-rpg/src/META-INF/MANIFEST.MF
+/java-rpg/.idea/artifacts/School_Stuff_jar.xml
+/java-rpg/.idea/modules.xml
+/java-rpg/out/production/School-Stuff/META-INF/MANIFEST.MF
+/java-rpg/.idea/discord.xml
