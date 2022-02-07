@@ -16,7 +16,8 @@
 *.nar
 *.ear
 *.zip
-*.tar.gz
+*.ta
+r.gz
 *.rar
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
@@ -45,3 +46,5 @@ hs_err_pid*
 /Python-Stuff/.idea/inspectionProfiles/profiles_settings.xml
 /Python-Stuff/.idea/Python-Stuff.iml
 /Python-Stuff/.idea/modules.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/compiler.xml
