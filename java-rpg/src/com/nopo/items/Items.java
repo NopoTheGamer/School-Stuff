@@ -11,6 +11,7 @@ import static com.nopo.functions.Startup.rngSeed;
 public class Items {
 
     public static boolean badApple = false;
+    public static boolean hpOver100 = false;
 
     public static void apple() {
         Utils.printTrimmer();
@@ -32,7 +33,7 @@ public class Items {
             ItemsUtils.items[itemSlot] = null;
             def += 5;
             coins += 35;
-            ItemsUtils.getItem("Cookie", 1);
+            ItemsUtils.giveItem("Cookie", 1);
             Utils.printFormattedLine(Strings.key1);
             Utils.printFormattedLine(Strings.key2);
             Utils.printFormattedLine(Strings.key3);
@@ -59,5 +60,23 @@ public class Items {
             Utils.printFormattedLine(Strings.cookieGood);
             Utils.printFormattedLine("Your health is now: " + hp);
         }
+    }
+
+    public static void potion() {
+        if (hp < 100) {
+            hp += 20;
+            hpOver100 = false;
+        } else {
+            hp += 5;
+            hpOver100 = true;
+        }
+        atk += 5;
+        def += 3;
+        Utils.printFormattedLine(Strings.potion1);
+        Utils.printFormattedLine(Strings.potion2);
+        Utils.printFormattedLine((hpOver100) ? "You gained 5 hp" : "You gained 20 hp");
+        Utils.printFormattedLine("You now have " + hp + " HP");
+        Utils.printFormattedLine(Strings.potion3);
+        Utils.printFormattedLine(Strings.potion4);
     }
 }

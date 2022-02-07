@@ -16,7 +16,7 @@ public class ItemsUtils {
     public static String itemList1 = "";
     public static String itemList2 = "";
 
-    public static void getItem(String item, int Amount) {
+    public static void giveItem(String item, int Amount) {
         int amount = 0;
         for (int i = 0; i < items.length; i++) {
             if (items[i] == null) {
@@ -63,6 +63,10 @@ public class ItemsUtils {
                             }
                             case "cookie" -> {
                                 Items.cookie();
+                                items[i] = null;
+                            }
+                            case "potion" -> {
+                                Items.potion();
                                 items[i] = null;
                             }
                         }

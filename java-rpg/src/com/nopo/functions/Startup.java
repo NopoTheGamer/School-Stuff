@@ -20,13 +20,13 @@ public class Startup {
         }
         rngSeed = (int) (Math.random() * 100);
         System.out.println(rngSeed);
-        x = randomNumberX[9];
-        y = randomNumberY[9];
-        //Scanner scanner = new Scanner(System.in);
+        x = randomNumberX[10];
+        y = randomNumberY[10];
+        Scanner scanner = new Scanner(System.in);
         Utils.printTrimmer();
         Utils.printFormattedLine(Strings.inputName);
         Utils.printTrimmer();
-        //name = scanner.nextLine();
+        name = scanner.nextLine();
         Utils.printTrimmer();
         if (name.length() > 30) {
             Utils.printFormattedLine(Strings.tooLong);
@@ -37,5 +37,6 @@ public class Startup {
         Utils.printFormattedLine(Strings.welcome);
         Utils.printTrimmer();
         System.out.println();
+        GetLocation.getLocation();
     }
 }

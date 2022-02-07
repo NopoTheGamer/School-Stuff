@@ -71,6 +71,7 @@ public class Strings {
     public static String dragon1 = "Watch out! There's a dragon!";
     public static String dragon2 = "It looks extra strong";
     public static String dragon3 = "Are you sure you want to fight it?";
+    public static String dragon4 = "Yeah running away is a good idea";
 
     //Items
     public static String apple1 = "That apple must of been rotten.";
@@ -88,6 +89,11 @@ public class Strings {
     public static String cookieBad = "You bit into the cookie";
     public static String cookieBad1 = "Btw mold isn't good for you";
     public static String cookieGood = "You ate the cookie!";
+
+    public static String potion1 = "You drank the mystical potion!";
+    public static String potion2 = "It gave you:";
+    public static String potion3 = "You gained 5 attack";
+    public static String potion4 = "You gained 3 defence";
 
     //Item Utils
     public static String inventory1 = "Use an item? (item name/n)";

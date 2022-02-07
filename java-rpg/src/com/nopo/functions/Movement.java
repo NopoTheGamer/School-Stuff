@@ -47,7 +47,7 @@ public class Movement {
                 System.out.println("Sword X: " + randomNumberX[3] + " Y: " + randomNumberY[3]);
                 System.out.println("Purse X: " + randomNumberX[4] + " Y: " + randomNumberY[4]);
                 System.out.println("Spider X: " + randomNumberX[5] + " Y: " + randomNumberY[5]);
-                ItemsUtils.getItem("Key", 8);
+                ItemsUtils.giveItem("Key", 8);
                 getLocation();
             }
             case "ai" -> {
