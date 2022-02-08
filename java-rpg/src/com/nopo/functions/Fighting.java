@@ -1,6 +1,7 @@
 package com.nopo.functions;
 
 import com.nopo.Utils;
+import com.nopo.items.ItemsUtils;
 
 import java.util.Scanner;
 
@@ -16,17 +17,21 @@ public class Fighting {
     public static int monsterDamage = 0;
     public static int playerDamage = 0;
     public static boolean failedDefend = false;
+    public static boolean giveRewardItem = true;
 
-    public static void fight(int monsterHp, int monsterAtk, String monsterName, int monsterLevel) {
+    public static void fight(int monsterHp, int monsterAtk, String monsterName, int monsterLevel, String rewardItem, int rewardItemAmount) {
+        if (rewardItemAmount == 0) {
+            giveRewardItem = false;
+        }
         monsterHealth = monsterHp;
         monsterAttack = monsterAtk;
         Utils.printTrimmer();
         System.out.println("|" + Utils.getSpaceLength(monsterName, 14) + Utils.getSpaceLength(monsterHp, 10) + monsterName + " has " + monsterHp + " hp |" + Utils.lnt);
         System.out.println("| You have " + hp + " hp" + Utils.getSpaceLength(hp, 27) + "|");
         while (hp > 0 && monsterHealth > 0) {
-            System.out.println("|      (a)ttack      |      (d)fend      |");
+            System.out.println("|      (a)ttack      |      (d)efend     |");
             Utils.printTrimmer();
-            System.out.println("");
+            System.out.println();
             Scanner scanner = new Scanner(System.in);
             String action = scanner.nextLine();
             switch (action) {
@@ -42,6 +47,10 @@ public class Fighting {
             }
         }
         if (hp > 0) {
+            if (giveRewardItem) {
+                ItemsUtils.giveItem(rewardItem, rewardItemAmount);
+                Utils.printFormattedLineFront("You got " + rewardItem + ((rewardItemAmount > 1) ? " x" + rewardItemAmount + " " : " " ) + "from the " + monsterName + "!");
+            }
             System.out.println("|" + Utils.getSpaceLength(monsterName, 9) + "You defeated " + monsterName + " |" + Utils.lnt);
             System.out.println("| You have " + hp + " hp" + Utils.getSpaceLength(hp, 27) + "|");
             coins += 5 * monsterLevel;
@@ -98,18 +107,19 @@ public class Fighting {
                 System.out.println("You need defence to defend yourself... ");
             } else {
                 if (defendCooldown < 1) {
+                    Utils.printTrimmer();
                     if (def > monsterAttack) {
-                        System.out.println("You block all damage from the monster next turn!");
+                        Utils.printFormattedLine("You block all damage next turn!");
                         protectedTurns += 1;
                         defendCooldown = 3;
                         protectedAmount = 0;
                     } else if (def == monsterAttack) {
-                        System.out.println("The monster does half damage to you for the next 2 turns!");
+                        Utils.printFormattedLine("The monster does half damage");
+                        Utils.printFormattedLine("for the next 2 turns!");
                         protectedAmount = 50;
                         protectedTurns += 2;
                         defendCooldown = 3;
                     } else {
-                        Utils.printTrimmer();
                         System.out.println("| The monster does a quarter less damage |" + Utils.ln + "| to you for the next turn!" + Utils.printSpaces(14) + "|" + Utils.lnt);
                         protectedAmount = 75;
                         protectedTurns += 1;

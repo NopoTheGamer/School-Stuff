@@ -7,7 +7,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import static com.nopo.Main.coins;
-import static com.nopo.items.ItemsUtils.getItem;
+import static com.nopo.items.ItemsUtils.giveItem;
 import static com.nopo.functions.Movement.movement;
 
 public class Shop {
@@ -28,7 +28,7 @@ public class Shop {
                 case "apple" -> {
                     if (appleStock > 0) {
                         if (coins >= 3) {
-                            getItem("Apple", 1);
+                            giveItem("Apple", 1);
                             coins -= 3;
                             appleStock--;
                             shop();
@@ -44,7 +44,7 @@ public class Shop {
                 case "key" -> {
                     if (!keyStock) {
                         if (coins >= 25) {
-                            getItem("Key", 1);
+                            giveItem("Key", 1);
                             coins -= 25;
                             keyStock = true;
                             shop();

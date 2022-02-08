@@ -30,4 +30,10 @@ public class Utils {
                 " ".repeat(39 - str.length()) +
                 "|");
     }
+    public static void printFormattedLineFront(String str) {
+        System.out.println( "|" +
+                " ".repeat(39 - str.length()) +
+                str +
+                " |");
+    }
 }

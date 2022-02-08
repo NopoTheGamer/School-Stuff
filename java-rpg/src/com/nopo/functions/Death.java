@@ -17,10 +17,11 @@ public class Death {
         x = randomNumberX[10 + deathCount];
         y = randomNumberY[10 + deathCount];
         hp = 75;
-        System.out.println("You died!");
+        Utils.printFormattedLine("You died!");
         coins /= 2;
         if (coins > 0) {
-            System.out.println("You lost half your coins!" + Utils.ln + "You now have " + coins + " coins");
+            Utils.printFormattedLine("You lost half your coins!");
+            Utils.printFormattedLine("You now have " + coins + " coins");
         }
         movement();
     }

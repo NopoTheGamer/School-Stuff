@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import static com.nopo.functions.Death.death;
 import static com.nopo.functions.Fighting.fight;
-import static com.nopo.items.ItemsUtils.getItem;
+import static com.nopo.items.ItemsUtils.giveItem;
 import static com.nopo.functions.Movement.movement;
 import static com.nopo.Main.*;
 import static com.nopo.functions.Shop.shop;
@@ -23,6 +23,7 @@ public class LocationCheck {
     public static boolean goblinFight = false;
     public static boolean giantSpiderFight = false;
     public static boolean keyDoor1 = false;
+    public static boolean dragonFight = false;
 
     public static int[] randomNumberX = new int[21];
     public static int[] randomNumberY = new int[21];
@@ -63,7 +64,7 @@ public class LocationCheck {
                 String input = scanner.nextLine();
                 switch (input.toLowerCase(Locale.ENGLISH)) {
                     case "y" -> {
-                        fight(50, 3, "Short Goblin", 1);
+                        fight(50, 3, "Short Goblin", 1,"", 0);
                     }
                     case "n" -> {
                         hp -= 5;
@@ -95,7 +96,7 @@ public class LocationCheck {
                         appleTree1 = true;
                         if (rngSeed > 20) {
                             Utils.printFormattedLine(Strings.appleTree3);
-                            getItem("Apple", 1);
+                            giveItem("Apple", 1);
                             movement();
                         } else {
                             Utils.printFormattedLine(Strings.appleTree4);
@@ -146,7 +147,7 @@ public class LocationCheck {
                 giantSpiderFight = true;
                 Utils.printFormattedLine(Strings.giantSpider1);
                 Utils.printFormattedLine(Strings.giantSpider2);
-                fight(25, 6, "Giant Spider", 3);
+                fight(25, 6, "Giant Spider", 3, "", 0);
             } else {
                 movement();
 
@@ -179,25 +180,30 @@ public class LocationCheck {
             }
             movement();
         } else if (x == randomNumberX[9] && y == randomNumberY[9]) {
-            Utils.printFormattedLine(Strings.dragon1);
-            Utils.printFormattedLine(Strings.dragon2);
-            Utils.printFormattedLine(Strings.dragon3);
-            Utils.printFormattedLine(Strings.promptYesNo);
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.nextLine();
-            switch (input.toLowerCase(Locale.ENGLISH)) {
-                case "y" -> {
-                    fight(50, 12, "Dragon", 6);
-                }
-                case "n" -> {
-                    Utils.printTrimmer();
-                    Utils.printFormattedLine(Strings.goblin7); //fix this when not lazy
-                    movement();
-                }
-                default -> {
-                    Utils.printTrimmer();
-                    Utils.printFormattedLine(Strings.invalidInput);
-                    isImportant();
+            if (!dragonFight) {
+                Utils.printFormattedLine(Strings.dragon1);
+                Utils.printFormattedLine(Strings.dragon2);
+                Utils.printFormattedLine(Strings.dragon3);
+                Utils.printFormattedLine(Strings.promptYesNo);
+                Utils.printTrimmer();
+                Scanner scanner = new Scanner(System.in);
+                String input = scanner.nextLine();
+                switch (input.toLowerCase(Locale.ENGLISH)) {
+                    case "y" -> {
+                        System.out.println();
+                        dragonFight = true;
+                        fight(50, 12, "Dragon", 6, "Potion", 2);
+                    }
+                    case "n" -> {
+                        Utils.printTrimmer();
+                        Utils.printFormattedLine(Strings.dragon4);
+                        movement();
+                    }
+                    default -> {
+                        Utils.printTrimmer();
+                        Utils.printFormattedLine(Strings.invalidInput);
+                        isImportant();
+                    }
                 }
             }
         }
