@@ -1,5 +1,8 @@
 package com.nopo;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 public class Utils {
 
     public static String ln = System.lineSeparator();
@@ -35,5 +38,11 @@ public class Utils {
                 " ".repeat(39 - str.length()) +
                 str +
                 " |");
+    }
+
+    public static String textInput() {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        return input.toLowerCase(Locale.ENGLISH);
     }
 }

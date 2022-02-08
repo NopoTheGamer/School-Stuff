@@ -186,9 +186,7 @@ public class LocationCheck {
                 Utils.printFormattedLine(Strings.dragon3);
                 Utils.printFormattedLine(Strings.promptYesNo);
                 Utils.printTrimmer();
-                Scanner scanner = new Scanner(System.in);
-                String input = scanner.nextLine();
-                switch (input.toLowerCase(Locale.ENGLISH)) {
+                switch (Utils.textInput()) {
                     case "y" -> {
                         System.out.println();
                         dragonFight = true;
@@ -206,6 +204,11 @@ public class LocationCheck {
                     }
                 }
             }
+        } else if (x == randomNumberX[10] && y == randomNumberY[10]) {
+            Utils.printFormattedLine("You enter a forest.");
+            Utils.printFormattedLine("You spot a gorilla");
+            Utils.printFormattedLine("Do you walk upto it?"); //finish bozo
+            movement();
         }
         else {
             movement();

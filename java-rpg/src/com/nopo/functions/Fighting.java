@@ -32,9 +32,7 @@ public class Fighting {
             System.out.println("|      (a)ttack      |      (d)efend     |");
             Utils.printTrimmer();
             System.out.println();
-            Scanner scanner = new Scanner(System.in);
-            String action = scanner.nextLine();
-            switch (action) {
+            switch (Utils.textInput()) {
                 case "a" -> {
                     attack();
                 }

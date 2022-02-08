@@ -18,9 +18,7 @@ public class Movement {
         System.out.println("| Move (w/a/s/d) | (inv)entory | (stats) |");
         Utils.printTrimmer();
         System.out.println();
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        switch (input) {
+        switch (Utils.textInput()) {
             case "w" -> {
                 y++;
                 getLocation();

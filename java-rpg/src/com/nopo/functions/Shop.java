@@ -22,9 +22,7 @@ public class Shop {
             Utils.printFormattedLine(Strings.shop3);
             movement();
         } else {
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.nextLine();
-            switch (input.toLowerCase(Locale.ENGLISH)) {
+            switch (Utils.textInput()) {
                 case "apple" -> {
                     if (appleStock > 0) {
                         if (coins >= 3) {
