@@ -1,6 +1,7 @@
 from time import sleep
 
 if __name__ == "__main__":
+    # I stole the idea from zak
     def funnidots():
         s = "."
         while True:
@@ -10,6 +11,7 @@ if __name__ == "__main__":
             print("\033c")
 
 
+    # runs swag neofetch
     def neofetch():
         print(r"""                        [0;34m-`                    nopo[0;37m@[0;34mnopo
                            [0;34m.o+`                   [0;37m---------
@@ -33,6 +35,7 @@ if __name__ == "__main__":
         maininput()
 
 
+    # I asked for some ideas and someone told me to make this
     def converter():
         converterInput = input("What would you like to convert\n(1) KG to Pounds\n(2) Pounds to KG\n")
         if converterInput == "1":
@@ -50,6 +53,7 @@ if __name__ == "__main__":
             maininput()
 
 
+    # Main loop
     def maininput():
         textInput = input("What would you like to run\n(1) dots display\n(2) neofetch\n(3) converter\n")
         if textInput == "1":
