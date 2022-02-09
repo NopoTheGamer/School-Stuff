@@ -1,4 +1,3 @@
-b = "Hello, World!"
 from time import sleep
 
 
