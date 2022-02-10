@@ -26,8 +26,9 @@ public class Fighting {
         monsterHealth = monsterHp;
         monsterAttack = monsterAtk;
         Utils.printTrimmer();
-        System.out.println("|" + Utils.getSpaceLength(monsterName, 14) + Utils.getSpaceLength(monsterHp, 10) + monsterName + " has " + monsterHp + " hp |" + Utils.lnt);
-        System.out.println("| You have " + hp + " hp" + Utils.getSpaceLength(hp, 27) + "|");
+        Utils.printFormattedLineFront(monsterName + " has " + monsterHp + " hp");
+        System.out.println(Utils.lt);
+        Utils.printFormattedLine("You have " + hp + " hp");
         while (hp > 0 && monsterHealth > 0) {
             System.out.println("|      (a)ttack      |      (d)efend     |");
             Utils.printTrimmer();
@@ -69,7 +70,7 @@ public class Fighting {
             System.out.println("|" + Utils.getSpaceLength(playerDamage, 7) + "You hit the monster for " + playerDamage + " damage! |");
         } else {
             System.out.println("| While trying to defend" + Utils.printSpaces(17) + "|");
-            System.out.println("| The monster attacked you!" + Utils.printSpaces(14)  + "|");
+            System.out.println("| The monster attacked you!" + Utils.printSpaces(14)  + "|"); //fix bozo
             Utils.printTrimmer();
             failedDefend = false;
         }
@@ -81,20 +82,20 @@ public class Fighting {
                 if (protectedTurns == 0) {
                     protectedAmount = 100;
                     hp = hp - monsterDamage;
-                    System.out.println("| The monster hits you for " + monsterDamage + " damage!" + Utils.getSpaceLength(monsterDamage, 6) + "|");
+                    Utils.printFormattedLine("The monster hits you for " + monsterDamage + " damage!");
                 } else if (protectedTurns >= 1) {
                     protectedTurns -= 1;
                     if (protectedAmount == 0) {
-                        System.out.println("The monster hits you but you fully protected yourself");
+                        Utils.printFormattedLine("You fully protect yourself!");
                     } else if (protectedAmount > 0) {
                         float floatMonsterDamage = monsterDamage;
                         float damage = ((floatMonsterDamage / 100) * protectedAmount);
                             hp = (int) (hp - damage);
-                            System.out.println("| The monster hits you for " + Math.round(damage) + " damage!" + Utils.getSpaceLength((int) damage, 6) + "|");
+                            Utils.printFormattedLine("The monster hits you for " + Math.round(damage) + " damage!");
                         }
                     }
                 if (hp > 0) {
-                    System.out.println("| You have " + hp + " hp" + Utils.getSpaceLength(hp, 27) + "|");
+                    Utils.printFormattedLine("You have " + hp + " hp");
                 }
             } else {
                 monsterHealth = 0;
