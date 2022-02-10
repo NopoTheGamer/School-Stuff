@@ -23,7 +23,11 @@ public class LocationCheck {
     public static boolean goblinFight = false;
     public static boolean giantSpiderFight = false;
     public static boolean keyDoor1 = false;
+    public static boolean foundKeyDoor = false;
     public static boolean dragonFight = false;
+    public static boolean foundDragon = false;
+    public static boolean manVSGorilla = false;
+    public static boolean foundShop = false;
 
     public static int[] randomNumberX = new int[21];
     public static int[] randomNumberY = new int[21];
@@ -153,6 +157,7 @@ public class LocationCheck {
 
             }
         } else if (x == randomNumberX[6] && y == randomNumberY[6]) {
+            foundShop = true;
             Utils.printFormattedLine(Strings.shop1);
             Utils.printFormattedLine(Strings.shop2);
             Utils.printTrimmer();
@@ -173,6 +178,7 @@ public class LocationCheck {
             }
             movement();
         } else if (x == randomNumberX[8] && y == randomNumberY[8]) {
+            foundKeyDoor = true;
             if (!keyDoor1) {
                 Utils.printFormattedLine(Strings.keyDoor1);
                 Utils.printFormattedLine(Strings.keyDoor2);
@@ -181,6 +187,7 @@ public class LocationCheck {
             movement();
         } else if (x == randomNumberX[9] && y == randomNumberY[9]) {
             if (!dragonFight) {
+                foundDragon = true;
                 Utils.printFormattedLine(Strings.dragon1);
                 Utils.printFormattedLine(Strings.dragon2);
                 Utils.printFormattedLine(Strings.dragon3);
@@ -190,6 +197,7 @@ public class LocationCheck {
                     case "y" -> {
                         System.out.println();
                         dragonFight = true;
+                        foundDragon = false;
                         fight(50, 12, "Dragon", 6, "Potion", 2);
                     }
                     case "n" -> {
@@ -205,10 +213,37 @@ public class LocationCheck {
                 }
             }
         } else if (x == randomNumberX[10] && y == randomNumberY[10]) {
-            Utils.printFormattedLine("You enter a forest.");
-            Utils.printFormattedLine("You spot a gorilla");
-            Utils.printFormattedLine("Do you walk upto it?"); //finish bozo
-            movement();
+            if (!manVSGorilla) {
+                Utils.printFormattedLine("You enter a forest.");
+                Utils.printFormattedLine("You spot a gorilla");
+                Utils.printFormattedLine("Do you walk upto it?");
+                Utils.printFormattedLine(Strings.promptYesNo);
+                Utils.printTrimmer();
+                switch (Utils.textInput()) {
+                    case "y" -> {
+                        Utils.printTrimmer();
+                        Utils.printFormattedLine("The gorilla notices you.");
+                        Utils.printFormattedLine("It reaches out");
+                        Utils.printFormattedLine("You get given a banana gun");
+                        Utils.printFormattedLine("+5 attack");
+                        atk += 5;
+                        manVSGorilla = true;
+                    }
+                    case "n" -> {
+                        Utils.printTrimmer();
+                        Utils.printFormattedLine("You get away quickly");
+                        manVSGorilla = true;
+                    }
+                    default -> {
+                        Utils.printTrimmer();
+                        Utils.printFormattedLine(Strings.invalidInput);
+                        isImportant();
+                    }
+                }
+                movement();
+            } else {
+                movement();
+            }
         }
         else {
             movement();
