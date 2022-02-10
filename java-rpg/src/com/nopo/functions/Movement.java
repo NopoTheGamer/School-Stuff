@@ -3,14 +3,12 @@ package com.nopo.functions;
 import com.nopo.Utils;
 import com.nopo.items.ItemsUtils;
 
-import java.util.Scanner;
 import static com.nopo.Main.*;
-
 import static com.nopo.functions.GetLocation.getLocation;
-import static com.nopo.items.ItemsUtils.inventory;
-import static com.nopo.items.ItemsUtils.items;
 import static com.nopo.functions.LocationCheck.randomNumberX;
 import static com.nopo.functions.LocationCheck.randomNumberY;
+import static com.nopo.items.ItemsUtils.inventory;
+import static com.nopo.items.ItemsUtils.items;
 
 public class Movement {
     public static void movement() {
@@ -56,12 +54,15 @@ public class Movement {
             }
             case "stats" -> {
                 Utils.printTrimmer();
-                System.out.println("| Health: " + hp + Utils.getSpaceLength(hp,31) + "|");
-                System.out.println("| Defence: " + def + Utils.getSpaceLength(def,30) + "|");
-                System.out.println("| Attack: " + atk + Utils.getSpaceLength(atk,31) + "|");
-                System.out.println("| Coins: " + coins + Utils.getSpaceLength(coins,32) + "|");
+                System.out.println("| Health: " + hp + Utils.getSpaceLength(hp, 31) + "|");
+                System.out.println("| Defence: " + def + Utils.getSpaceLength(def, 30) + "|");
+                System.out.println("| Attack: " + atk + Utils.getSpaceLength(atk, 31) + "|");
+                System.out.println("| Coins: " + coins + Utils.getSpaceLength(coins, 32) + "|");
                 System.out.println(Utils.lt);
                 movement();
+            }
+            case "suicide" -> {
+                Death.death();
             }
             default -> {
                 System.out.println("Invalid input");
