@@ -5,8 +5,7 @@ import com.nopo.items.ItemsUtils;
 
 import static com.nopo.Main.*;
 import static com.nopo.functions.GetLocation.getLocation;
-import static com.nopo.functions.LocationCheck.randomNumberX;
-import static com.nopo.functions.LocationCheck.randomNumberY;
+import static com.nopo.functions.LocationCheck.*;
 import static com.nopo.items.ItemsUtils.inventory;
 import static com.nopo.items.ItemsUtils.items;
 
@@ -63,6 +62,9 @@ public class Movement {
             }
             case "suicide" -> {
                 Death.death();
+            }
+            case "map" -> {
+                Map.map();
             }
             default -> {
                 System.out.println("Invalid input");

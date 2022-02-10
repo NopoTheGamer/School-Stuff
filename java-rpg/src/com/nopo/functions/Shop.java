@@ -14,6 +14,7 @@ public class Shop {
 
     public static boolean keyStock = false;
     public static boolean encounterStock = false;
+    public static boolean tpStock = false;
     public static int appleStock = 3;
 
     public static void shop() {
@@ -70,6 +71,21 @@ public class Shop {
                         shop();
                     }
                 }
+                case "tp" -> {
+                    if (!tpStock) {
+                        if (coins >= 55) {
+                            coins -= 55;
+                            tpStock = true;
+                            shop();
+                        } else {
+                            Utils.printFormattedLine(Strings.notEnoughCoins);
+                            shop();
+                        }
+                    } else {
+                        Utils.printFormattedLine(Strings.outOfStock);
+                        shop();
+                    }
+                }
                 case "exit" -> {
                     movement();
                 }
@@ -86,9 +102,9 @@ public class Shop {
         Utils.printFormattedLine(Strings.shop8);
         Utils.printFormattedLine(Strings.shop9);
         Utils.printTrimmer();
-        System.out.println("| You have " + coins + " coins." + Utils.getSpaceLength(coins, 23) + "|");
+        Utils.printFormattedLine("You have " + coins + " coins.");
         if (appleStock > 0) {
-            System.out.println("| Apple (3 Coins) (" + appleStock + "x left)" + Utils.printSpaces(14) + "|");
+            Utils.printFormattedLine("Apple (3 Coins) (" + appleStock + "x left)");
         }
         if (!keyStock) {
             Utils.printFormattedLine(Strings.shop12);
@@ -96,7 +112,10 @@ public class Shop {
         if (!encounterStock) {
             Utils.printFormattedLine(Strings.shop13);
         }
-        if (keyStock && appleStock == 0 && encounterStock) {
+        if (!tpStock) {
+            Utils.printFormattedLine("(tp) to known locations (55 Coins)");
+        }
+        if (keyStock && appleStock == 0 && encounterStock && tpStock) {
             Utils.printFormattedLine(Strings.shop14);
             Utils.printFormattedLine(Strings.shop15);
         }
