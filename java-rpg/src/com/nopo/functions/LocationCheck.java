@@ -34,7 +34,7 @@ public class LocationCheck {
             if (!lootChest1) {
                 Utils.printFormattedLine(Strings.lootChest2);
                 coins += 10;
-                Utils.printFormattedLine(Strings.lootChest3);
+                Utils.printFormattedLine("You now have " + coins + " coins!");
                 if (rngSeed > 50) {
                     Utils.printFormattedLine(Strings.lootChest4);
                     atk += 2;
@@ -51,9 +51,9 @@ public class LocationCheck {
             if (!goblinFight) {
                 goblinFight = true;
                 if (name.length() < 11) {
-                    Utils.printFormattedLine(Strings.goblin1);
+                    Utils.printFormattedLine("Look out " + name + "! There's a monster!");
                 } else {
-                    Utils.printFormattedLine(Strings.goblin2);
+                    Utils.printFormattedLine("Look out " + name);
                     Utils.printFormattedLine(Strings.goblin3);
                 }
                 Utils.printFormattedLine(Strings.goblin4);
@@ -70,7 +70,7 @@ public class LocationCheck {
                         hp -= 5;
                         Utils.printTrimmer();
                         Utils.printFormattedLine(Strings.goblin6);
-                        Utils.printFormattedLine(Strings.goblin7);
+                        Utils.printFormattedLine("Your hp is now: " + hp);
                         movement();
                     }
                     default -> {
@@ -102,7 +102,7 @@ public class LocationCheck {
                             Utils.printFormattedLine(Strings.appleTree4);
                             Utils.printFormattedLine(Strings.appleTree5);
                             hp -= 5;
-                            Utils.printFormattedLine(Strings.goblin7);
+                            Utils.printFormattedLine("Your hp is now: " + hp);
                             if (hp < 1) {
                                 death();
                             } else {
@@ -137,7 +137,7 @@ public class LocationCheck {
                 coins += 10;
                 Utils.printFormattedLine(Strings.purse1);
                 Utils.printFormattedLine(Strings.purse2);
-                Utils.printFormattedLine(Strings.purse3);
+                Utils.printFormattedLine("You now have " + coins + " coins!");
                 System.out.println(Utils.lt);
                 purse1 = true;
             }
@@ -145,7 +145,7 @@ public class LocationCheck {
         } else if (x == randomNumberX[5] && y == randomNumberY[5]) {
             if (!giantSpiderFight) {
                 giantSpiderFight = true;
-                Utils.printFormattedLine(Strings.giantSpider1);
+                Utils.printFormattedLine("Look out " + name + "!");
                 Utils.printFormattedLine(Strings.giantSpider2);
                 fight(25, 6, "Giant Spider", 3, "", 0);
             } else {

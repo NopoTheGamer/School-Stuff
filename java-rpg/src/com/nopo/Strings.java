@@ -26,7 +26,7 @@ public class Strings {
     public static String goblin4 = "Do you want to fight it?";
     public static String promptYesNo = "      (Y)es       |        (N)o       ";
     public static String goblin6 = "You got hit for 5 hp!";
-    public static String goblin7 = "Your hp is now: " + (hp-5);
+    public static String goblin7 = "Your hp is now: " + hp;
 
     public static String appleTree1 = "Looks like an apple tree!";
     public static String appleTree2 = "Do you want to shake it?   (y) | (n)  ";
