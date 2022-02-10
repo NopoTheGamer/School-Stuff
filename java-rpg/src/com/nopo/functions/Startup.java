@@ -15,8 +15,8 @@ public class Startup {
 
     public static void startUp() {
         for (int i = 0; i < 21; i++) {
-            randomNumberX[i] = (int) (Math.random() * 20);
-            randomNumberY[i] = (int) (Math.random() * 20);
+            randomNumberX[i] = (int) (Math.random() * 15);
+            randomNumberY[i] = (int) (Math.random() * 15);
         }
         rngSeed = (int) (Math.random() * 100);
         System.out.println(rngSeed);
