@@ -53,15 +53,23 @@ if __name__ == "__main__":
             maininput()
 
 
+    def deez():
+        nuts = input("Are you cool\n")
+        print(nuts + " deez nuts")
+        maininput()
+
+
     # Main loop
     def maininput():
-        textInput = input("What would you like to run\n(1) dots display\n(2) neofetch\n(3) converter\n")
+        textInput = input("What would you like to run\n(1) dots display\n(2) neofetch\n(3) converter\n(4) humour\n")
         if textInput == "1":
             funnidots()
         elif textInput == "2":
             neofetch()
         elif textInput == "3":
             converter()
+        elif textInput == "4":
+            deez()
         else:
             print("Invalid input")
             maininput()
