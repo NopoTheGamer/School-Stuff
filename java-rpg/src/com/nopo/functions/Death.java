@@ -1,6 +1,9 @@
 package com.nopo.functions;
 
 import com.nopo.Utils;
+import com.nopo.items.ItemsUtils;
+
+import java.util.Arrays;
 
 import static com.nopo.functions.LocationCheck.randomNumberX;
 import static com.nopo.functions.LocationCheck.randomNumberY;
@@ -17,7 +20,10 @@ public class Death {
         x = randomNumberX[10 + deathCount];
         y = randomNumberY[10 + deathCount];
         hp = 75;
+        Arrays.fill(ItemsUtils.items, null);
         Utils.printFormattedLine("You died!");
+        Utils.printFormattedLine("You have been teleported to a random location.");
+        Utils.printFormattedLine("You lost all your items.");
         coins /= 2;
         if (coins > 0) {
             Utils.printFormattedLine("You lost half your coins!");
