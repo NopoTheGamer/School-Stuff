@@ -13,6 +13,7 @@ import static com.nopo.Main.*;
 public class Death {
     public static int deathCount = 0;
     public static void death() {
+        Utils.printTrimmer();
         deathCount ++;
         if (deathCount > 18) {
             deathCount = 0;
