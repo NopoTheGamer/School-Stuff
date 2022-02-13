@@ -3,8 +3,6 @@ package com.nopo.functions;
 import com.nopo.Utils;
 import com.nopo.items.ItemsUtils;
 
-import java.util.Scanner;
-
 import static com.nopo.functions.Death.death;
 import static com.nopo.functions.Movement.movement;
 import static com.nopo.Main.*;
@@ -19,7 +17,7 @@ public class Fighting {
     public static boolean failedDefend = false;
     public static boolean giveRewardItem = true;
 
-    public static void fight(int monsterHp, int monsterAtk, String monsterName, int monsterLevel, String rewardItem, int rewardItemAmount) {
+    public static void fight(int monsterHp, int monsterAtk, String monsterName, int monsterLevel, String rewardItem, int rewardItemAmount, boolean gotoColiseum) {
         if (rewardItemAmount == 0) {
             giveRewardItem = false;
         }
@@ -55,8 +53,15 @@ public class Fighting {
             coins += 5 * monsterLevel;
             System.out.println("| You gained " + (5 * monsterLevel) + " coins!" + Utils.getSpaceLength(5 * monsterLevel, 21) + "|");
             System.out.println("| You now have " + coins + " coins" + Utils.getSpaceLength(coins, 20) + "|");
-            Utils.printTrimmer();
-            movement();
+            if (!gotoColiseum) {
+                Utils.printTrimmer();
+                movement();
+            } else {
+                System.out.println(Utils.lt);
+                Utils.printFormattedLine("You have unlocked the next tier!");
+                Utils.printTrimmer();
+                BattleHouse.enter();
+            }
         } else {
             death();
         }

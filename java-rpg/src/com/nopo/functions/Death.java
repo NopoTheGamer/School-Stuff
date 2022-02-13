@@ -23,7 +23,7 @@ public class Death {
         hp = 75;
         Arrays.fill(ItemsUtils.items, null);
         Utils.printFormattedLine("You died!");
-        Utils.printFormattedLine("You have been teleported to a random location.");
+        Utils.printFormattedLine("You have been teleported randomly");
         Utils.printFormattedLine("You lost all your items.");
         coins /= 2;
         if (coins > 0) {

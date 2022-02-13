@@ -11,7 +11,7 @@ public class GetLocation {
         if (Shop.encounterStock) {
             if ((int) (Math.random() * 100) > 94) {
                 System.out.println("A bat decides to attack you!");
-                fight(5, 6, "Small bat", 2, "", 0);
+                fight(5, 6, "Small bat", 2, "", 0, false);
             }
         }
         if (x < 0) {

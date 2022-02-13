@@ -68,7 +68,7 @@ public class LocationCheck {
                 String input = scanner.nextLine();
                 switch (input.toLowerCase(Locale.ENGLISH)) {
                     case "y" -> {
-                        fight(50, 3, "Short Goblin", 1,"", 0);
+                        fight(50, 3, "Short Goblin", 1,"", 0, false);
                     }
                     case "n" -> {
                         hp -= 5;
@@ -151,7 +151,7 @@ public class LocationCheck {
                 giantSpiderFight = true;
                 Utils.printFormattedLine("Look out " + name + "!");
                 Utils.printFormattedLine(Strings.giantSpider2);
-                fight(25, 6, "Giant Spider", 3, "", 0);
+                fight(25, 6, "Giant Spider", 3, "", 0, false);
             } else {
                 movement();
 
@@ -198,7 +198,7 @@ public class LocationCheck {
                         System.out.println();
                         dragonFight = true;
                         foundDragon = false;
-                        fight(50, 12, "Dragon", 6, "Potion", 2);
+                        fight(50, 12, "Dragon", 6, "Potion", 2, false);
                     }
                     case "n" -> {
                         Utils.printTrimmer();
@@ -243,6 +243,25 @@ public class LocationCheck {
                 movement();
             } else {
                 movement();
+            }
+        } else if (x == randomNumberX[11] && y == randomNumberY[11]) {
+            Utils.printTrimmer();
+            Utils.printFormattedLine("You found a coliseum!");
+            Utils.printFormattedLine("Do you want to enter?");
+            Utils.printFormattedLine(Strings.promptYesNo);
+            Utils.printTrimmer();
+            switch (Utils.textInput()) {
+                case "y" -> {
+                    BattleHouse.enter();
+                }
+                case "n" -> {
+                    movement();
+                }
+                default -> {
+                    Utils.printTrimmer();
+                    Utils.printFormattedLine(Strings.invalidInput);
+                    isImportant();
+                }
             }
         }
         else {
