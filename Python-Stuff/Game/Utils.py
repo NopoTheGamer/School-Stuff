@@ -1,3 +1,6 @@
+import interactions
+
+
 def printFormattedLine(string):
     numLen = 50 - len(string)
     spaces = " " * numLen
@@ -12,12 +15,18 @@ def printTrimmer():
 def interact(*args):
     for s in args:
         printFormattedLine(f"{s}")
+    printTrimmer()
     playerInput = input("")
     i = 0
     for st in args:
-        if playerInput == st:
-            print("do stuff")
+        if playerInput.lower() == st.lower():
+            interactions.interactWithRoom(playerInput.lower())
             break
         i += 1
         if i == len(args):
             print("cant do that")
+
+
+def exitGame():
+    print("Goodbye")
+    exit()

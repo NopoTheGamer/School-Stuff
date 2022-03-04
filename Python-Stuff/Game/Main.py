@@ -17,17 +17,21 @@ def gameLoop():
     Utils.printFormattedLine("A toolbox")
     Utils.printFormattedLine("And a power inverter")
     Utils.printFormattedLine("What would you like to do?")
+    Utils.printTrimmer()
     Utils.printFormattedLine("Interact | Check inventory | Go to the next room")
+    Utils.printFormattedLine("Exit")
     Utils.printTrimmer()
     match (input("")).lower():
         case "interact":
+            Utils.printTrimmer()
             Utils.printFormattedLine("What would you like to interact with?")
-
+            Utils.interact("Computer", "Toolbox", "Power inverter")
         case "check" | "inventory" | "check inventory" | "inv":
             print("nuts")
         case "room" | "go" | "next" | "go to next room":
             print("sir im so mature with my naming")
+        case "exit" | "quit":
+            Utils.exitGame()
 
 
-Utils.interact("a", "b", "b")
 gameLoop()
