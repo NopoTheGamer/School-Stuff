@@ -1,4 +1,5 @@
 import Utils
+from Room1 import room1
 
 
 def gameLoop():
@@ -11,27 +12,7 @@ def gameLoop():
     Utils.printFormattedLine(f"You jump down the hatch")
     Utils.printFormattedLine("It doesn't look like you can get back up")
     Utils.printTrimmer()
-    Utils.printFormattedLine("It looks like you are in a bunker")
-    Utils.printFormattedLine("You look around and spot:")
-    Utils.printFormattedLine("A computer")
-    Utils.printFormattedLine("A toolbox")
-    Utils.printFormattedLine("And a power inverter")
-    Utils.printFormattedLine("What would you like to do?")
-    Utils.printTrimmer()
-    Utils.printFormattedLine("Interact | Check inventory | Go to the next room")
-    Utils.printFormattedLine("Exit")
-    Utils.printTrimmer()
-    match (input("")).lower():
-        case "interact":
-            Utils.printTrimmer()
-            Utils.printFormattedLine("What would you like to interact with?")
-            Utils.interact("Computer", "Toolbox", "Power inverter")
-        case "check" | "inventory" | "check inventory" | "inv":
-            print("nuts")
-        case "room" | "go" | "next" | "go to next room":
-            print("sir im so mature with my naming")
-        case "exit" | "quit":
-            Utils.exitGame()
+    room1()
 
 
 gameLoop()

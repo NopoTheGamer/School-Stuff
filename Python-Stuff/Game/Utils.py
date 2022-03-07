@@ -12,9 +12,9 @@ def printTrimmer():
     print(f"|{dashes}|")
 
 
-def interact(*args):
-    for s in args:
-        printFormattedLine(f"{s}")
+def interact(args):
+    for s in range(len(args)):
+        printFormattedLine(f"{args[s]}")
     printTrimmer()
     playerInput = input("")
     i = 0
