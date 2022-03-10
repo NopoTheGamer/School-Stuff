@@ -1,3 +1,5 @@
+import Room1
+import Room2
 import interactions
 
 
@@ -24,9 +26,41 @@ def interact(args):
             break
         i += 1
         if i == len(args):
-            print("cant do that")
+            printFormattedLine("Invalid input")
+            printTrimmer()
+            interact(args)
 
 
 def exitGame():
-    print("Goodbye")
+    printFormattedLine("Goodbye")
     exit()
+
+
+def goToNextRoom(room):
+    if room == 0:
+        print("how??")
+    if room == 1:
+        Room1.room1()
+    if room == 2:
+        Room2.room2()
+
+
+def roomInteract(room):
+    if room == 0:
+        print("how??")
+    if room == 1:
+        Room1.room1Interact()
+    if room == 2:
+        Room2.room2Interact()
+
+
+def mainInput(CurrentRoom):
+    match (input("")).lower():
+        case "interact":
+            Room1.room1Interact()
+        case "check" | "inventory" | "check inventory" | "inv":
+            print("nuts")
+        case "room" | "go" | "next" | "go to next room":
+            goToNextRoom(CurrentRoom)
+        case "exit" | "quit":
+            exitGame()

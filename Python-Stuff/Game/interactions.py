@@ -10,6 +10,7 @@ def interactWithRoom(arg):
             Utils.printFormattedLine("You see a computer")
             Utils.printFormattedLine("You turn it on and there is a prompt")
             Utils.printFormattedLine("It asks you \"Are you sure\"")
+            Utils.printTrimmer()
             match input(""):
                 case "yes":
                     print("deez")
@@ -27,4 +28,10 @@ def interactWithRoom(arg):
             Room1.toolbox = True
             Room1.room1()
         case "power inverter":
-            Utils.printFormattedLine("You see a power inverter. It's a bit old, but it's still working.")
+            Utils.printFormattedLine("You spot a power inverter.")
+            Utils.printFormattedLine("You turn it and it makes a loud noise")
+            Utils.printFormattedLine("The lights turn on and you can see a crate")
+            Utils.printFormattedLine("You open it up and you find a gold coin")
+            # add coin into inventory
+            Room1.powerinverter = True
+            Room1.room1()
