@@ -1,4 +1,5 @@
 import Utils
+import Items
 from Room1 import room1
 
 
@@ -12,6 +13,7 @@ def gameLoop():
     Utils.printFormattedLine(f"You jump down the hatch")
     Utils.printFormattedLine("It doesn't look like you can get back up")
     Utils.printTrimmer()
+    #Items.backpack()
     room1()
 
 

@@ -57,7 +57,7 @@ def roomInteract(room):
 def mainInput(CurrentRoom):
     match (input("")).lower():
         case "interact":
-            Room1.room1Interact()
+            roomInteract(CurrentRoom)
         case "check" | "inventory" | "check inventory" | "inv":
             print("nuts")
         case "room" | "go" | "next" | "go to next room":
