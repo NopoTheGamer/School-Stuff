@@ -1,5 +1,5 @@
 import Utils
-itemList = ["EMPTY", "nuts", "EMPTY", "EMPTY", "deez"]
+itemList = ["EMPTY", "EMPTY", "EMPTY", "EMPTY", "EMPTY"]
 def backpack():
     print("| You have: ", end="| ")
     for a in itemList:
@@ -20,7 +20,7 @@ def backpack():
 def addItem(item):
     for i in range(len(itemList)):
         #print(f"{i} {len(itemList)}")
-        if itemList[i] == "EMaPTY":
+        if itemList[i] == "EMPTY":
             itemList[i] = item
             break
         if i == len(itemList) - 1:
@@ -34,28 +34,35 @@ def addItem(item):
                     Utils.printFormattedLine("What item do you want to replace?")
                     Utils.printTrimmer()
                     userPlayerInputForDroppingInFortnite = input("")
-                    print(itemList)
+                    # print(itemList)
                     #for a in range(len(userPlayerInputForDroppingInFortnite)):
-                    #THIS DOESNT WORK YOU FUCKER
-                    #FUCKING STUPID
-                    print("a")
+                    #print("a")
                     for b in range(len(itemList)):
-                        print("b")
-                        print(f"{userPlayerInputForDroppingInFortnite} + {itemList[b]}")
+                        # print("b")
+                        # print(f"{userPlayerInputForDroppingInFortnite} + {itemList[b]}")
                         if userPlayerInputForDroppingInFortnite.lower() == itemList[b].lower():
                             if userPlayerInputForDroppingInFortnite == "EMPTY":
                                 Utils.printFormattedLine("nice try drongo")
+                                Utils.printTrimmer()
+                                break
                             else:
-                                itemList[b] = userPlayerInputForDroppingInFortnite
-                                print(itemList)
+                                itemList[b] = item
+                                listItems()
+                                break
                 case _:
                     Utils.printFormattedLine(f"You just left \"{item}\" on the ground")
                     Utils.printTrimmer()
 
 
 def listItems():
-    print("| You have: ", end="| ")
+    itemString = str("")
+    itemString += "| Items:"
+    # print("| You have: ", end="| ")
     for a in itemList:
         if a != "EMPTY":
-            print(a, end=" | ")
-    print()
+            itemString += " | " + a
+            # print(a, end=" | ")
+    itemString += " |"
+    itemStringlen = len(itemString)
+    itemString += " " * (52 - itemStringlen)
+    print(itemString + "|")
