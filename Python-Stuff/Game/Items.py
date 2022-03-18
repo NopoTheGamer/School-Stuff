@@ -73,3 +73,11 @@ def listItems():
     Utils.printTrimmer()
     print(itemString + "|")
     Utils.printTrimmer()
+
+def useItem(Item):
+    for a in range(len(itemList)):
+        if Item == itemList[a]:
+            print("deez")
+            itemList[a] = "EMPTY"
+            listItems()
+            break

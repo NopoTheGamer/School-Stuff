@@ -14,6 +14,7 @@ def gameLoop():
     Utils.printFormattedLine("It doesn't look like you can get back up")
     Utils.printTrimmer()
     #Items.addItem("phone")
+    #Items.useItem("phonea")
     room1()
 
 
