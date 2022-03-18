@@ -1,6 +1,7 @@
 import Room1
 import Room2
 import interactions
+import Items
 
 
 def printFormattedLine(string):
@@ -55,12 +56,18 @@ def roomInteract(room):
 
 
 def mainInput(CurrentRoom):
+    printFormattedLine("What would you like to do?")
+    printTrimmer()
+    printFormattedLine("Interact | Check inventory | Go to the next room")
+    printFormattedLine("Exit")
+    printTrimmer()
     match (input("")).lower():
         case "interact":
             roomInteract(CurrentRoom)
         case "check" | "inventory" | "check inventory" | "inv":
-            print("nuts")
+            Items.listItems()
+            mainInput(CurrentRoom)
         case "room" | "go" | "next" | "go to next room":
-            goToNextRoom(CurrentRoom)
+            goToNextRoom(CurrentRoom + 1)
         case "exit" | "quit":
             exitGame()

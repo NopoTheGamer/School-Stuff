@@ -2,6 +2,7 @@ import Room1
 import Stats
 import Utils
 import webbrowser
+import Items
 
 
 def interactWithRoom(arg):
@@ -53,6 +54,9 @@ def interactWithRoom(arg):
             Utils.printFormattedLine("You turn it and it makes a loud noise")
             Utils.printFormattedLine("The lights turn on and you can see a crate")
             Utils.printFormattedLine("You open it up and you find a gold coin")
-            # add coin into inventory
+            Utils.printTrimmer()
+            Items.addItem("Coin")
+            Items.listItems()
+            Utils.printTrimmer()
             Room1.powerinverter = True
             Room1.room1()
