@@ -13,7 +13,7 @@ def gameLoop():
     Utils.printFormattedLine(f"You jump down the hatch")
     Utils.printFormattedLine("It doesn't look like you can get back up")
     Utils.printTrimmer()
-    Items.addItem("phone")
+    #Items.addItem("phone")
     room1()
 
 

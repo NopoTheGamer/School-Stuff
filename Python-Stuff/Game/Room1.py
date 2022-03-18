@@ -17,11 +17,6 @@ def room1():
         Utils.printFormattedLine("A toolbox")
     if powerinverter is False:
         Utils.printFormattedLine("A power inverter")
-    Utils.printFormattedLine("What would you like to do?")
-    Utils.printTrimmer()
-    Utils.printFormattedLine("Interact | Check inventory | Go to the next room")
-    Utils.printFormattedLine("Exit")
-    Utils.printTrimmer()
     Utils.mainInput(1)
 
 
