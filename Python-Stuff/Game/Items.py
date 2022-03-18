@@ -58,11 +58,18 @@ def listItems():
     itemString = str("")
     itemString += "| Items:"
     # print("| You have: ", end="| ")
+    i = 0
     for a in itemList:
         if a != "EMPTY":
             itemString += " | " + a
             # print(a, end=" | ")
-    itemString += " |"
+        else: i += 1
+        if i == 5:
+            itemString = "| You have no items"
+    if i != 5:
+        itemString += " |"
     itemStringlen = len(itemString)
     itemString += " " * (52 - itemStringlen)
+    Utils.printTrimmer()
     print(itemString + "|")
+    Utils.printTrimmer()
