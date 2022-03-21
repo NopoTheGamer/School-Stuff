@@ -3,6 +3,7 @@ vendingMachine = False
 playDough = False
 flashLight = False
 flashLightOn = False
+jukebox = False
 
 def room2():
     Utils.printTrimmer()
@@ -14,7 +15,7 @@ def room2():
         Utils.printFormattedLine("Some tubs of play dough")
     if flashLight is False:
         Utils.printFormattedLine("A flash light")
-    if flashLightOn is True:
+    if flashLightOn is True and jukebox is False:
         Utils.printFormattedLine("A Jukebox")
     Utils.mainInput(2)
 
@@ -28,6 +29,6 @@ def room2Interact():
         array.append("Play Dough")
     if not flashLight:
         array.append("Flash light")
-    if flashLightOn:
+    if flashLightOn and jukebox is not False:
         array.append("Jukebox")
     Utils.interact(array)

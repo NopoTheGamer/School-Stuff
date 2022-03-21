@@ -106,7 +106,20 @@ def interactWithRoom(arg):
                     Utils.printFormattedLine("Now you can see more of the room")
             Room2.room2()
         case "jukebox":
+            Room2.jukebox = True
             if Items.hasItem("CD"):
+                Items.useItem("CD")
+                webbrowser.open("https://www.youtube.com/watch?v=yPYZpwSpKmA", new=1, autoraise=True)
                 Utils.printFormattedLine("You put your cd in")
+                Utils.printFormattedLine("\"Together forever\" Starts playing")
                 # you get forever togertherd'd
+                Utils.printFormattedLine("A part of the jukebox opens")
+                Utils.printFormattedLine("You pick up a sword from the jukebox")
+                Utils.printFormattedLine("+2 attack")
+                Stats.attack += 2
+            else:
+                Utils.printFormattedLine("It looks like it takes a CD to play")
+                Utils.printFormattedLine("You dont have a CD so you walk away")
+            Room2.room2()
+
 
