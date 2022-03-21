@@ -1,6 +1,7 @@
 import Utils
 import Items
 from Room1 import room1
+import Room4
 
 
 def gameLoop():
@@ -18,6 +19,7 @@ def gameLoop():
     #if Items.hasItem("deez"):
     #    print("yes")
     #else: print("no")
+    #Room4.room4()
     room1()
 
 

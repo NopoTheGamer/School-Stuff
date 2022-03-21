@@ -1,6 +1,7 @@
 import Room1
 import Room2
 import Room3
+import Room4
 import interactions
 import Items
 
@@ -49,6 +50,8 @@ def goToNextRoom(room):
         Room2.room2()
     if room == 3:
         Room3.room3()
+    if room == 4:
+        Room4.room4()
 
 
 def roomInteract(room):
