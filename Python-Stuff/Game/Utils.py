@@ -1,5 +1,6 @@
 import Room1
 import Room2
+import Room3
 import interactions
 import Items
 
@@ -35,6 +36,7 @@ def interact(args):
 
 def exitGame():
     printFormattedLine("Goodbye")
+    printTrimmer()
     exit()
 
 
@@ -45,6 +47,8 @@ def goToNextRoom(room):
         Room1.room1()
     if room == 2:
         Room2.room2()
+    if room == 3:
+        Room3.room3()
 
 
 def roomInteract(room):
@@ -54,7 +58,10 @@ def roomInteract(room):
         Room1.room1Interact()
     if room == 2:
         Room2.room2Interact()
-
+    if room == 3:
+        # Room3.room3Interact()
+        # i mean this shouldnt ever run but ill remove it to be safe
+        print("how??")
 
 def mainInput(CurrentRoom):
     printFormattedLine("What would you like to do?")
@@ -72,3 +79,7 @@ def mainInput(CurrentRoom):
             goToNextRoom(CurrentRoom + 1)
         case "exit" | "quit":
             exitGame()
+        case _:
+            printTrimmer()
+            printFormattedLine("Invalid input")
+            mainInput(CurrentRoom)
