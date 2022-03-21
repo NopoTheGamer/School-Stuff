@@ -74,6 +74,12 @@ def listItems():
     print(itemString + "|")
     Utils.printTrimmer()
 
+def hasAnyItems():
+    for a in itemList:
+        if a != "EMPTY":
+            return True
+    return False
+
 def useItem(Item):
     for a in range(len(itemList)):
         if Item == itemList[a]:
