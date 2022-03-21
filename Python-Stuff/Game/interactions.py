@@ -1,4 +1,5 @@
 import Room1
+import Room2
 import Stats
 import Utils
 import webbrowser
@@ -18,6 +19,9 @@ def interactWithRoom(arg):
                     webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=1, autoraise=True)
                     Utils.printTrimmer()
                     Utils.printFormattedLine("The 1987 hit song \"Never gonna give you up\" plays")
+                    Utils.printFormattedLine("The CD drive opens")
+                    Utils.printFormattedLine("You pick up the CD for \"Never gonna give you up\"")
+                    Items.addItem("CD")
                 case "no":
                     print("""⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣶⣿⣿⣿⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -60,3 +64,49 @@ def interactWithRoom(arg):
             Utils.printTrimmer()
             Room1.powerinverter = True
             Room1.room1()
+        case "vending machine":
+            Room2.vendingMachine = True
+            Utils.printFormattedLine("You spot a vending machine")
+            if Items.hasItem("Coin"):
+                Utils.printFormattedLine("Do you want to put your coin into it?")
+                Utils.printTrimmer()
+                match input("").lower():
+                    case "yes":
+                        Items.useItem("Coin")
+                        Utils.printTrimmer()
+                        Utils.printFormattedLine("You put in the coin and out comes a chug splash")
+                        Items.addItem("Chug splash")
+                    case _:
+                        Utils.printFormattedLine("You are spooked by it so you walk away")
+            else:
+                Utils.printFormattedLine("You dont have any money so you walk away")
+            Room2.room2()
+        case "play dough":
+            Room2.playDough = True
+            Items.addItem("Play Dough")
+            Utils.printFormattedLine("You picked up a tub of play dough")
+            Room2.room2()
+        case "flash light":
+            Room2.flashLight = True
+            Utils.printFormattedLine("You pick up a flash light")
+            Utils.printFormattedLine("On the table next to you")
+            Utils.printFormattedLine("There is AA and AAA batteries")
+            Utils.printFormattedLine("What batteries do you want to put in?")
+            Utils.printTrimmer()
+            match input("").lower():
+                case "aa":
+                    Utils.printTrimmer()
+                    Utils.printFormattedLine("You slide in the batteries and turn it on")
+                    Utils.printFormattedLine("The flash light short circuits and becomes unusable")
+                case "aaa":
+                    Utils.printTrimmer()
+                    Room2.flashLightOn = True
+                    Utils.printFormattedLine("You slide in the batteries and turn it on")
+                    Utils.printFormattedLine("The flashlight produces a powerful beam")
+                    Utils.printFormattedLine("Now you can see more of the room")
+            Room2.room2()
+        case "jukebox":
+            if Items.hasItem("CD"):
+                Utils.printFormattedLine("You put your cd in")
+                # you get forever togertherd'd
+

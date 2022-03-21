@@ -27,6 +27,7 @@ def interact(args):
             break
         i += 1
         if i == len(args):
+            printTrimmer()
             printFormattedLine("Invalid input")
             printTrimmer()
             interact(args)

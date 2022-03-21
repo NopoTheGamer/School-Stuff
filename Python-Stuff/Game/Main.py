@@ -14,7 +14,10 @@ def gameLoop():
     Utils.printFormattedLine("It doesn't look like you can get back up")
     Utils.printTrimmer()
     #Items.addItem("phone")
-    #Items.useItem("phonea")
+    #Items.useItem("deez")
+    #if Items.hasItem("deez"):
+    #    print("yes")
+    #else: print("no")
     room1()
 
 

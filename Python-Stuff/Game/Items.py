@@ -77,7 +77,17 @@ def listItems():
 def useItem(Item):
     for a in range(len(itemList)):
         if Item == itemList[a]:
-            print("deez")
+            # print("deez")
             itemList[a] = "EMPTY"
-            listItems()
+            # listItems()
             break
+
+def hasItem(Item):
+    i = 1
+    for a in itemList:
+        # print(f"{a} + {Item}")
+        if a == Item:
+            return True
+        else: i += 1
+        if i == len(itemList):
+            return False
