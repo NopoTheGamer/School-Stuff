@@ -9,8 +9,12 @@ import Items
 def printFormattedLine(string):
     numLen = 50 - len(string)
     spaces = " " * numLen
-    print(f"| {string}{spaces}|")
+    print(f"| {string}{spaces}\u001b[0m|")
 
+def printRedFormattedLine(string):
+    numLen = 50 - len(string)
+    spaces = " " * numLen
+    print(f"\u001b[31m| {string}{spaces}|\u001b[0m")
 
 def printTrimmer():
     dashes = "-" * 51
