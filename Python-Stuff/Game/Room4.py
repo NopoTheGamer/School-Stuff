@@ -4,6 +4,8 @@ import Utils
 numberle = []
 green = [0, 0, 0, 0, 0]
 yellow = [0, 0, 0, 0, 0]
+ansiGreen = "\u001b[32m"
+ansiYellow = "\u001b[33m"
 
 def room4():
     for i in range(1, 6):
@@ -18,6 +20,8 @@ def room4():
 
 
 def puzzle():
+    displayNumber = [-1, -1, -1, -1, -1]
+    displayNumberStr = ""
     Utils.printFormattedLine("Enter a 5 digit number")
     Utils.printTrimmer()
     numberInput = input("")
@@ -25,7 +29,10 @@ def puzzle():
         for i in range(1, 6):
             if int(str(numberInput)[i-1:i]) == numberle[i-1]:
                 green[i-1] = 1
-                print("Correct")
+                displayNumber[i-1] = "\u001b[32m" + str(numberInput)[i-1:i]
+        for z in range(0, 5):
+            displayNumberStr += str(displayNumber[z]) + " | "
+        Utils.printFormattedLine(f"{displayNumberStr}")
         #TODO: Made a check for yellow numbers
     else:
         Utils.printTrimmer()
