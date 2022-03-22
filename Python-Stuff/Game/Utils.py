@@ -2,6 +2,7 @@ import Room1
 import Room2
 import Room3
 import Room4
+import Room5
 import interactions
 import Items
 
@@ -9,6 +10,11 @@ import Items
 def printFormattedLine(string):
     numLen = 50 - len(string)
     spaces = " " * numLen
+    print(f"| {string}{spaces}\u001b[0m|")
+
+def printFormattedLineWithSpaces(string, numberOfSpaces):
+    numLen = 50 - len(string)
+    spaces = " " * (numLen + numberOfSpaces)
     print(f"| {string}{spaces}\u001b[0m|")
 
 def printRedFormattedLine(string):
@@ -56,6 +62,11 @@ def goToNextRoom(room):
         Room3.room3()
     if room == 4:
         Room4.room4()
+    if room == 5:
+        Room5.room5()
+    if room == 6:
+        # do smth
+        print("how??")
 
 
 def roomInteract(room):
