@@ -60,6 +60,7 @@ def fight(enemyName, enemyHP, enemyAttack, room):
         Utils.printFormattedLine(f"You killed {enemyName}!")
         # Doesnt need to happen in the narrator fight
         if enemyName == "Zombie":
+            Stats.score += 5
             Utils.printFormattedLine("You pick up the zombies dagger and gain 3 attack!")
             Stats.attack += 3
             Utils.printFormattedLine("You quickly leave the sewer")

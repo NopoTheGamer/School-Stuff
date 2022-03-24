@@ -7,7 +7,7 @@ import interactions
 import Items
 import Stats
 import FinalRoom
-
+mappoints = False
 
 def printFormattedLine(string):
     # gets string length and removes it from 50
@@ -124,6 +124,12 @@ def mainInput(CurrentRoom):
         case "exit" | "quit":
             exitGame()
         case "map":
+            # points for checking the map
+            # even tho its kinda useless
+            global mappoints
+            if CurrentRoom == 1 and mappoints == False:
+                mappoints = True
+                Stats.score += 2
             printTrimmer()
             # Here i use ternary operators to put a arrow at the start of the string if the room is the current room
             # I would of used them elsewhere but i got confused between ternary and lambda expressions and googled the wrong thing 👍

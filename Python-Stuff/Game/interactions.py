@@ -21,6 +21,9 @@ def interactWithRoom(arg):
                 case "yes":
                     # I think you can blame this on darcy
                     # I asked what should the computer do and he said rick roll 👍
+                    # I dont think this works in replit tho
+                    # rick roll points 👍
+                    Stats.score += 1
                     webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=1, autoraise=True)
                     Utils.printTrimmer()
                     Utils.printFormattedLine("The 1987 hit song \"Never gonna give you up\" plays")
@@ -82,6 +85,7 @@ def interactWithRoom(arg):
                 Utils.printTrimmer()
                 match input("").lower():
                     case "yes":
+                        Stats.score += 5
                         Items.useItem("Coin")
                         Utils.printTrimmer()
                         Utils.printFormattedLine("You put in the coin and out comes a chug splash")
@@ -108,6 +112,7 @@ def interactWithRoom(arg):
             match input("").lower():
                 case "aaa":
                     Utils.printTrimmer()
+                    Stats.score += 5
                     Room2.flashLightOn = True
                     Utils.printFormattedLine("You slide in the batteries and turn it on")
                     Utils.printFormattedLine("The flashlight produces a powerful beam")
@@ -125,6 +130,7 @@ def interactWithRoom(arg):
             if Items.hasItem("CD"):
                 Items.useItem("CD")
                 # Another rick astley song 👍
+                Stats.score += 3
                 webbrowser.open("https://www.youtube.com/watch?v=yPYZpwSpKmA", new=1, autoraise=True)
                 Utils.printFormattedLine("You put your cd in")
                 Utils.printFormattedLine("\"Together forever\" Starts playing")

@@ -84,6 +84,12 @@ def puzzle():
         # Because the ansi reset counts as text but doesnt get rendered i have to added extra spaces (45)
         Utils.printFormattedLineWithSpaces(f"{displayNumberStr}", 45 if Stats.coloredText else 0)
         if fullyCorrect == 5:
+            if guessCount < 5:
+                Stats.score += 5
+            elif Stats.score < 8:
+                Stats.score += 1
+            else:
+                Stats.score -= (guessCount - 8)
             Utils.printTrimmer()
             Utils.printFormattedLine("You have beat the puzzle!")
             Utils.printFormattedLine("You advance to the next room")
