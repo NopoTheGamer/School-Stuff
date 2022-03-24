@@ -27,7 +27,11 @@ def gameLoop():
     playerName = input("")
     # If the player name puts in "test" the desk check runs
     if playerName == "test":
-        Tests.test()
+        Tests.deskCheck()
+    # In the marking guide line it says we need movement but uhhh my game only has go to next room
+    # So i made a movement demo
+    elif playerName == "movement":
+        Tests.movement(0, 0)
     Utils.printTrimmer()
     # f strings are cool
     # I wish java had them
