@@ -5,10 +5,18 @@ numberle = []
 green = [0, 0, 0, 0, 0]
 yellow = [0, 0, 0, 0, 0]
 ansiGreen = "\u001b[32m"
-ansiYellow = "\u001b[33m"
+ansiRed = "\u001b[31m"
+ansiReset = "\u001b[0m"
 guessCount = 0
 
 def room4():
+    if not Stats.coloredText:
+        global ansiGreen
+        ansiGreen = ""
+        global ansiRed
+        ansiRed = ""
+        global ansiReset
+        ansiReset = ""
     for i in range(1, 6):
         numberle.append(random.randint(0, 9))
     # print(numberle)
@@ -35,14 +43,14 @@ def puzzle():
             try:
                 if int(str(numberInput)[i-1:i]) == numberle[i-1]:
                     green[i-1] = 1
-                    displayNumber[i-1] = "\u001b[32m" + str(numberInput)[i-1:i]
+                    displayNumber[i-1] = ansiGreen + str(numberInput)[i-1:i]
                     fullyCorrect += 1
             except ValueError:
                 Utils.printFormattedLine("The number has to be a number")
                 puzzle()
         for z in range(0, 5):
-            displayNumberStr += str(displayNumber[z]) + " \u001b[0m| "
-        displayNumberStr = displayNumberStr.replace("-1", "\u001b[31mX")
+            displayNumberStr += str(displayNumber[z]) + " " + ansiReset + "| "
+        displayNumberStr = displayNumberStr.replace("-1", ansiRed + "X")
         if guessCount % 5 == 0 and fullyCorrect != 5:
             Utils.printFormattedLine("The machine zaps you for 10 health")
             Stats.health -= 10

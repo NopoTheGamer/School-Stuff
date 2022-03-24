@@ -33,15 +33,15 @@ def addItem(item):
                     Utils.printTrimmer()
                     Utils.printFormattedLine("What item do you want to replace?")
                     Utils.printTrimmer()
-                    userPlayerInputForDroppingInFortnite = input("")
+                    itemToDrop = input("")
                     # print(itemList)
                     #for a in range(len(userPlayerInputForDroppingInFortnite)):
                     #print("a")
                     for b in range(len(itemList)):
                         # print("b")
                         # print(f"{userPlayerInputForDroppingInFortnite} + {itemList[b]}")
-                        if userPlayerInputForDroppingInFortnite.lower() == itemList[b].lower():
-                            if userPlayerInputForDroppingInFortnite == "EMPTY":
+                        if itemToDrop.lower() == itemList[b].lower():
+                            if itemToDrop == "EMPTY":
                                 Utils.printFormattedLine("nice try drongo")
                                 Utils.printTrimmer()
                                 break

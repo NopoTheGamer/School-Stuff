@@ -5,22 +5,32 @@ import Room4
 import Room5
 import interactions
 import Items
+import Stats
 
 
 def printFormattedLine(string):
     numLen = 50 - len(string)
     spaces = " " * numLen
-    print(f"| {string}{spaces}\u001b[0m|")
+    if Stats.coloredText:
+        print(f"| {string}{spaces}\u001b[0m|")
+    else:
+        print(f"| {string}{spaces}|")
 
 def printFormattedLineWithSpaces(string, numberOfSpaces):
     numLen = 50 - len(string)
     spaces = " " * (numLen + numberOfSpaces)
-    print(f"| {string}{spaces}\u001b[0m|")
+    if Stats.coloredText:
+        print(f"| {string}{spaces}\u001b[0m|")
+    else:
+        print(f"| {string}{spaces}|")
 
 def printRedFormattedLine(string):
     numLen = 50 - len(string)
     spaces = " " * numLen
-    print(f"\u001b[31m| {string}{spaces}|\u001b[0m")
+    if Stats.coloredText:
+        print(f"\u001b[31m| {string}{spaces}|\u001b[0m")
+    else:
+        print(f"| {string}{spaces}|")
 
 def printTrimmer():
     dashes = "-" * 51

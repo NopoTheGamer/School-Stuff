@@ -121,5 +121,7 @@ def interactWithRoom(arg):
                 Utils.printFormattedLine("It looks like it takes a CD to play")
                 Utils.printFormattedLine("You dont have a CD so you walk away")
             Room2.room2()
+        case _:
+            Utils.printFormattedLine("There is nothing you can interact with")
 
 
