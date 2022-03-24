@@ -16,9 +16,10 @@ def room5():
         case "run" | "run to door" | "leave" | "door":
             Utils.printRedFormattedLine("You escaped this whole place")
             Utils.printRedFormattedLine("You are now free")
-            Fight.fight("Narrator", 40, (random.randint(2, 4) * 7), 6)
+
             # run credits and score and stuff
         case "fight" | "attack" | "battle" | "kill" | "fight the narrator" | "narrator":
             Utils.printTrimmer()
-            Utils.printFormattedLine("You wanat to fight me?? Prepare to go down")
+            Utils.printFormattedLine("You want to fight me?? Prepare to go down")
+            Fight.fight("Narrator", 40, (random.randint(2, 4) * 7), 6)
 

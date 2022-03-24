@@ -6,7 +6,7 @@ import Room4
 
 def gameLoop():
     Utils.printTrimmer()
-    Utils.printFormattedLine("What is ur name?")
+    Utils.printFormattedLine("What is your name?")
     Utils.printTrimmer()
     playerName = input("")
     Utils.printTrimmer()
