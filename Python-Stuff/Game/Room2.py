@@ -16,6 +16,8 @@ def room2():
     if flashLight is False:
         Utils.printFormattedLine("A flash light")
     if flashLightOn is True and jukebox is False:
+        # I did some trickery here
+        # You need a light to see it !!
         Utils.printFormattedLine("A Jukebox")
     Utils.mainInput(2)
 
@@ -31,4 +33,9 @@ def room2Interact():
         array.append("Flash light")
     if flashLightOn and jukebox is not False:
         array.append("Jukebox")
+    if not array:
+        Utils.printTrimmer()
+        Utils.printFormattedLine("There is nothing you can interact with")
+        Utils.printTrimmer()
+        Utils.mainInput(2)
     Utils.interact(array)
