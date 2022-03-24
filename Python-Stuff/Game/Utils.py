@@ -10,7 +10,11 @@ import FinalRoom
 
 
 def printFormattedLine(string):
+    # gets string length and removes it from 50
     numLen = 50 - len(string)
+    # then multiples somes spaces
+    # Funny formatted lines that look nice  👍
+    # instead of ooga booga print()
     spaces = " " * numLen
     if Stats.coloredText:
         print(f"| {string}{spaces}\u001b[0m|")
@@ -18,6 +22,8 @@ def printFormattedLine(string):
         print(f"| {string}{spaces}|")
 
 def printFormattedLineWithSpaces(string, numberOfSpaces):
+    # due to ansi escape codes not rendering but counting as char's
+    # needed some extra spaces
     numLen = 50 - len(string)
     spaces = " " * (numLen + numberOfSpaces)
     if Stats.coloredText:
@@ -26,6 +32,8 @@ def printFormattedLineWithSpaces(string, numberOfSpaces):
         print(f"| {string}{spaces}|")
 
 def printRedFormattedLine(string):
+    # red !!!
+    # useless if colors are off
     numLen = 50 - len(string)
     spaces = " " * numLen
     if Stats.coloredText:
@@ -34,6 +42,9 @@ def printRedFormattedLine(string):
         print(f"| {string}{spaces}|")
 
 def printTrimmer():
+    # Have a break between text
+    # formatting top priority
+    # thats why these funcs were made first
     dashes = "-" * 51
     print(f"|{dashes}|")
 
